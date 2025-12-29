@@ -1,0 +1,25 @@
+{
+  "bookTitle": "The Three Fundamental Principles",
+  "chapters": [
+    {
+      "id": "intro-1",
+      "title": "The Four Matters",
+      "sections": [
+        {
+          "id": "sec-1",
+          "arabic": "اعْلَمْ رَحِمَكَ اللهُ أَنَّهُ يَجِبُ عَلَيْنَا تَعَلُّمُ أَرْبَعِ مَسَائِلَ",
+          "english": "Know, may Allah have mercy upon you, that it is obligatory upon us to learn four matters.",
+          "videoId": "",
+          "takeaways": ["Obligation of seeking knowledge", "Mercy of Allah upon the student"]
+        },
+        {
+          "id": "sec-2",
+          "arabic": "الأُولَى: العِلْمُ: وَهُوَ مَعْرِفَةُ اللهِ، وَمَعْرِفَةُ نَبِيِّهِ، وَمَعْرِفَةُ دِينِ الإِسْلَامِ بِالأَدِلَّةِ",
+          "english": "The First: Knowledge, which is knowledge of Allah, knowledge of His Prophet, and knowledge of the religion of Islam with evidences.",
+          "videoId": "",
+          "takeaways": ["Definition of Knowledge (Ilm)", "Three categories of Knowledge"]
+        }
+      ]
+    }
+  ]
+}
