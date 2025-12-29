@@ -1,0 +1,78 @@
+{
+  "bookTitle": "The Three Fundamental Principles",
+  "description": "A comprehensive guide to the questions of the grave.",
+  "chapters": [
+    {
+      "id": "intro-1",
+      "title": "The Four Matters",
+      "sections": [
+        {
+          "id": "intro-1-1",
+          "arabic": "اعْلَمْ - رَحِمَكَ اللهُ - أَنَّهُ يَجِبُ عَلَيْنَا تَعَلَّمُ أَرْبَعِ مَسَائِلَ: الأُولَى العِلْمُ، وهُوَ مَعْرِفَةُ اللهِ، وَمَعْرِفَةُ نَبِيِّهِ، وَمَعْرِفَةُ دِينِ الإِسْلامِ بِالأَدِلَّةِ",
+          "english": "Know, may Allah have mercy upon you, that it is obligatory upon us to learn four matters. The First: Knowledge, which is knowledge of Allah, knowledge of His Prophet, and knowledge of the religion of Islam with evidences.",
+          "videoId": "dQw4w9WgXcQ",
+          "takeaways": ["Seeking knowledge is obligatory", "Knowledge precedes speech and action"]
+        },
+        {
+          "id": "intro-1-2",
+          "arabic": "الثَّانِيَةُ: العَمَلُ بِهِ. الثَّالِثَةُ: الدَّعْوَةُ إِلَيْهِ. الرَّابِعَةُ: الصَّبْرُ عَلَى الْأَذَى فِيهِ",
+          "english": "The Second: Acting upon it. The Third: Calling to it. The Fourth: Patience with the harm that comes with it.",
+          "videoId": "",
+          "takeaways": ["Knowledge requires action", "Patience is essential for the caller"]
+        }
+      ]
+    },
+    {
+      "id": "intro-2",
+      "title": "The Three Matters",
+      "sections": [
+        {
+          "id": "intro-2-1",
+          "arabic": "اعْلَمْ - رَحِمَكَ اللهُ - أَنَّهُ يَجِبُ عَلَى كُلِّ مُسْلِمٍ وَمُسْلِمَةٍ تَعَلَّمُ ثَلَاثِ هَذِهِ المَسَائِلِ وَالْعَمَلُ بِهِنَّ : الأُولَى : أَنَّ اللَّهَ خَلَقَنَا وَرَزَقَنَا وَلَمْ يَتْرُكْنَا هَمَلاً",
+          "english": "Know, may Allah have mercy upon you, that it is obligatory on every Muslim, male and female, to learn these three matters and act upon them. The First: That Allah created us, sustained us, and did not leave us neglected.",
+          "videoId": "",
+          "takeaways": ["Allah is the Creator and Sustainer", "We have a purpose"]
+        }
+      ]
+    },
+    {
+      "id": "principle-1",
+      "title": "1st Principle: Knowledge of Allah",
+      "sections": [
+        {
+          "id": "p1-1",
+          "arabic": "فَإِذَا قِيلَ لَكَ : مَنْ رَبُّكَ؟ فَقُلْ: رَبِّيَ اللَّهُ الَّذِي رَبَّانِي وَرَبَّي جَمِيعَ الْعَالَمِينَ بِنِعَمِهِ، وَهُوَ مَعْبُودِي لِيْسَ لِي مَعْبُودٌ سِوَاهُ",
+          "english": "So if it is said to you: 'Who is your Lord?', say: 'My Lord is Allah, who has nurtured me and all of the worlds with His favors. He is my object of worship; I have no other object of worship but Him.'",
+          "videoId": "",
+          "takeaways": ["Definition of Rabb (Lord)", "Exclusive right of worship"]
+        }
+      ]
+    },
+    {
+      "id": "principle-2",
+      "title": "2nd Principle: The Religion",
+      "sections": [
+        {
+          "id": "p2-1",
+          "arabic": "الأَصْلُ الثَّانِي: مَعْرِفَةُ دِينِ الإِسْلامِ بِالْأَدِلَّةِ، وَهُوَ الاسْتِسْلَامُ لِلَّهِ بِالتَّوْحِيدِ وَالانْقِيَادُ لَهُ بِالطَّاعَةِ وَالْبَرَاءَةُ مِنَ الشِّرْكِ وَأَهْلِهِ",
+          "english": "The Second Fundamental Principle: Knowledge of the religion of Islam with evidences. It is submission to Allah with Tawheed, compliance to Him with obedience, and dissociation from Shirk and its people.",
+          "videoId": "",
+          "takeaways": ["Definition of Islam", "Al-Walaa wal-Baraa"]
+        }
+      ]
+    },
+    {
+      "id": "principle-3",
+      "title": "3rd Principle: The Prophet",
+      "sections": [
+        {
+          "id": "p3-1",
+          "arabic": "الأَصْلُ الثَّالِثُ : مَعْرِفَةُ نَبِيِّكُمْ مُحَمَّدٍ وَهَوَ مُحَمَّدُ بنُ عَبْدِ اللهِ بْنِ عَبْدِ الْمُطَّلِبِ بْنِ هَاشِمٍ، وَهَاشِمٌ مِنْ قُرَيْشٍ",
+          "english": "The Third Fundamental Principle: Knowledge of your Prophet Muhammad. He is Muhammad bin Abdullah bin Abdul-Muttalib bin Hashim, and Hashim is from Quraysh.",
+          "videoId": "",
+          "takeaways": ["Lineage of the Prophet", "His noble status"]
+        }
+      ]
+    }
+  ]
+}
