@@ -1,57 +1,205 @@
 {
-  "title": "Al-Usool Al-Thalatha Mastery",
-  "quizzes": [
+  "title": "Comprehensive Final Exam: The Three Fundamental Principles",
+  "questions": [
     {
-      "id": "q1",
-      "chapterId": "intro-1",
-      "question": "According to Surah Al-Asr, what is the FIRST condition for salvation?",
+      "id": 1,
+      "question": "What is the first matter that is obligatory upon us to learn?",
+      "questionArabic": "مَا هِيَ الْمَسْأَلَةُ الْأُولَى الَّتِي يَجِبُ عَلَيْنَا تَعَلُّمُهَا؟",
       "options": [
+        "Knowledge (of Allah, His Prophet, and His Religion)",
         "Acting upon knowledge",
-        "Having Faith (Iman) & Knowledge",
-        "Calling others to the truth",
-        "Patience in adversity"
+        "Calling to it",
+        "Patience with harm"
       ],
-      "correctAnswer": 1,
-      "explanation": "Iman (which requires Knowledge) is the first condition mentioned: 'Except those who have believed...'"
+      "optionsArabic": [
+        "الْعِلْمُ (مَعْرِفَةُ اللهِ، وَنَبِيِّهِ، وَدِينِ الإِسْلامِ)",
+        "الْعَمَلُ بِهِ",
+        "الدَّعْوَةُ إِلَيْهِ",
+        "الصَّبْرُ عَلَى الأَذَى فِيهِ"
+      ],
+      "correctAnswer": 0,
+      "explanation": "Knowledge precedes speech and action. Imam Bukhari titled a chapter: 'Knowledge comes before speech and action'.",
+      "explanationArabic": "الْعِلْمُ قَبْلَ الْقَوْلِ وَالْعَمَلِ، كَمَا بَوَّبَ الْبُخَارِيُّ رَحِمَهُ اللهُ."
     },
     {
-      "id": "q2",
-      "chapterId": "intro-1",
-      "question": "Why did Imam Al-Bukhari title his chapter 'Knowledge before Speech and Action'?",
+      "id": 2,
+      "question": "According to Imam Ash-Shafi'i, which Surah would have been sufficient as proof against creation?",
+      "questionArabic": "مَا هِيَ السُّورَةُ الَّتِي قَالَ عَنْهَا الشَّافِعِيُّ لَوْ لَمْ يُنْزِلِ اللهُ حُجَّةً غَيْرَهَا لَكَفَتْهُمْ؟",
       "options": [
-        "Because speech is easier than action",
-        "Because knowledge validates the intention and correctness of the deed",
-        "Because scholars are more important than workers",
-        "Because it is the longest chapter in his book"
+        "Surah Al-Fatiha",
+        "Surah Al-Ikhlas",
+        "Surah Al-Asr",
+        "Surah Al-Kawthar"
       ],
-      "correctAnswer": 1,
-      "explanation": "He cited the verse 'So Know that there is no deity except Allah, and ask forgiveness...', showing that Knowledge is the prerequisite for the action (seeking forgiveness)."
-    },
-    {
-      "id": "q3",
-      "chapterId": "intro-2",
-      "question": "What is the definition of 'Al-Hanafiyyah' mentioned in the text?",
-      "options": [
-        "The school of Imam Abu Hanifah",
-        "General monotheism without specific laws",
-        "The religion of Ibrahim: Worshipping Allah alone, sincere to Him",
-        "Performing Hajj and Umrah annually"
+      "optionsArabic": [
+        "سُورَةُ الْفَاتِحَةِ",
+        "سُورَةُ الْإِخْلَاصِ",
+        "سُورَةُ الْعَصْرِ",
+        "سُورَةُ الْكَوْثَرِ"
       ],
       "correctAnswer": 2,
-      "explanation": "The text states: 'Al-Hanafiyyah, the religion of Ibrahim, is to worship Allah alone, making the religion sincere for Him.'"
+      "explanation": "Because it contains the four levels of success: Knowledge, Action, Dawah, and Patience.",
+      "explanationArabic": "لِأَنَّهَا اشْتَمَلَتْ عَلَى مَرَاتِبِ النَّجَاةِ الأَرْبَعِ: الْعِلْمِ، وَالْعَمَلِ، وَالدَّعْوَةِ، وَالصَّبْرِ."
     },
     {
-      "id": "q4",
-      "chapterId": "intro-2",
-      "question": "Which of the following is NOT one of the Three Fundamental Principles?",
+      "id": 3,
+      "question": "What is the greatest thing Allah has commanded?",
+      "questionArabic": "مَا هُوَ أَعْظَمُ مَا أَمَرَ اللهُ بِهِ؟",
       "options": [
-        "Knowledge of your Lord",
-        "Knowledge of your Prophet",
-        "Knowledge of the Quran's recitation rules",
-        "Knowledge of your Religion"
+        "Salat (Prayer)",
+        "Tawheed (Monotheism)",
+        "Zakat (Charity)",
+        "Jihad"
+      ],
+      "optionsArabic": [
+        "الصَّلَاةُ",
+        "التَّوْحِيدُ",
+        "الزَّكَاةُ",
+        "الْجِهَادُ"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Tawheed is singling out Allah in worship, and it is the purpose of creation.",
+      "explanationArabic": "التَّوْحِيدُ هُوَ إِفْرَادُ اللهِ بِالْعِبَادَةِ، وَهُوَ الْغَايَةُ مِنَ الْخَلْقِ."
+    },
+    {
+      "id": 4,
+      "question": "If you are asked 'Who is your Lord?', what is the correct answer?",
+      "questionArabic": "إِذَا قِيلَ لَكَ: مَنْ رَبُّكَ؟ فَمَا الْجَوَابُ؟",
+      "options": [
+        "My Lord is the Prophet Muhammad",
+        "My Lord is Allah who nurtured me and all the worlds",
+        "My Lord is my intellect",
+        "My Lord is Jibril"
+      ],
+      "optionsArabic": [
+        "رَبِّيَ النَّبِيُّ مُحَمَّدٌ",
+        "رَبِّيَ اللهُ الَّذِي رَبَّانِي وَرَبَّى جَمِيعَ الْعَالَمِينَ بِنِعَمِهِ",
+        "رَبِّيَ عَقْلِي",
+        "رَبِّيَ جِبْرِيلُ"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Allah is the Rabb (Lord) meaning the Creator, Owner, and Nurturer of all things.",
+      "explanationArabic": "اللهُ هُوَ الرَّبُّ بِمَعْنَى الْخَالِقِ الْمَالِكِ الْمُدَبِّرِ لِجَمِيعِ الْمَخْلُوقَاتِ."
+    },
+    {
+      "id": 5,
+      "question": "Which of these is NOT one of the 5 Pillars of Islam?",
+      "questionArabic": "أَيٌّ مِمَّا يَلِي لَيْسَ مِنْ أَرْكَانِ الْإِسْلَامِ الْخَمْسَةِ؟",
+      "options": [
+        "Fasting Ramadan",
+        "Hajj (Pilgrimage)",
+        "Iman in the Angels",
+        "Zakat"
+      ],
+      "optionsArabic": [
+        "صَوْمُ رَمَضَانَ",
+        "حَجُّ الْبَيْتِ",
+        "الْإِيمَانُ بِالْمَلَائِكَةِ",
+        "الزَّكَاةُ"
       ],
       "correctAnswer": 2,
-      "explanation": "The Three Principles are: Knowing Allah, Knowing His Prophet, and Knowing the Religion of Islam."
+      "explanation": "Belief in Angels is a Pillar of Iman, not Islam.",
+      "explanationArabic": "الْإِيمَانُ بِالْمَلَائِكَةِ مِنْ أَرْكَانِ الْإِيمَانِ، وَلَيْسَ مِنْ أَرْكَانِ الْإِسْلَامِ."
+    },
+    {
+      "id": 6,
+      "question": "What is the definition of Ihsan?",
+      "questionArabic": "مَا هُوَ تَعْرِيفُ الْإِحْسَانِ؟",
+      "options": [
+        "To memorize the Quran",
+        "To give charity openly",
+        "To worship Allah as if you see Him",
+        "To pray only in the Masjid"
+      ],
+      "optionsArabic": [
+        "حِفْظُ الْقُرْآنِ",
+        "إِعْطَاءُ الصَّدَقَةِ عَلَانِيَةً",
+        "أَنْ تَعْبُدَ اللهَ كَأَنَّكَ تَرَاهُ",
+        "الصَّلَاةُ فِي الْمَسْجِدِ فَقَطْ"
+      ],
+      "correctAnswer": 2,
+      "explanation": "This is the highest level of religion: 'To worship Allah as if you see Him, and if you do not see Him, He sees you.'",
+      "explanationArabic": "هُوَ أَعْلَى مَرَاتِبِ الدِّينِ: «أَنْ تَعْبُدَ اللهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ»."
+    },
+    {
+      "id": 7,
+      "question": "The Prophet Muhammad ﷺ was sent to:",
+      "questionArabic": "أُرْسِلَ النَّبِيُّ مُحَمَّدٌ ﷺ إِلَى:",
+      "options": [
+        "The Arabs only",
+        "The People of Quraysh only",
+        "All of Mankind and Jinn",
+        "The people of Makkah only"
+      ],
+      "optionsArabic": [
+        "الْعَرَبِ فَقَطْ",
+        "قُرَيْشٍ فَقَطْ",
+        "جَمِيعِ الثَّقَلَيْنِ (الْجِنِّ وَالْإِنْسِ)",
+        "أَهْلِ مَكَّةَ فَقَطْ"
+      ],
+      "correctAnswer": 2,
+      "explanation": "His message is universal. Allah said: 'Say, O Mankind, indeed I am the Messenger of Allah to you all.'",
+      "explanationArabic": "رِسَالَتُهُ عَامَّةٌ. قَالَ تَعَالَى: ﴿قُلْ يَا أَيُّهَا النَّاسُ إِنِّي رَسُولُ اللَّهِ إِلَيْكُمْ جَمِيعًا﴾."
+    },
+    {
+      "id": 8,
+      "question": "What is the definition of Taghut according to Ibn Al-Qayyim?",
+      "questionArabic": "مَا هُوَ تَعْرِيفُ الطَّاغُوتِ عِنْدَ ابْنِ الْقَيِّمِ؟",
+      "options": [
+        "Only idols made of stone",
+        "Anything by which a servant exceeds his limit (worshipped, followed, obeyed)",
+        "Only the Shaytan",
+        "People who do not pray"
+      ],
+      "optionsArabic": [
+        "الْأَصْنَامُ الْمَصْنُوعَةُ مِنَ الْحَجَرِ فَقَطْ",
+        "مَا تَجَاوَزَ بِهِ الْعَبْدُ حَدَّهُ مِنْ مَعْبُودٍ أَوْ مَتْبُوعٍ أَوْ مُطَاعٍ",
+        "الشَّيْطَانُ فَقَطْ",
+        "الَّذِينَ لَا يُصَلُّونَ"
+      ],
+      "correctAnswer": 1,
+      "explanation": "This is the comprehensive definition: exceeding the limits in worship, following, or obedience.",
+      "explanationArabic": "هَذَا هُوَ التَّعْرِيفُ الْجَامِعُ: مُجَاوَزَةُ الْحَدِّ فِي الْعِبَادَةِ أَوِ الْاتِّبَاعِ أَوِ الطَّاعَةِ."
+    },
+    {
+      "id": 9,
+      "question": "What happens to those who deny the Resurrection (Al-Ba'th)?",
+      "questionArabic": "مَا حُكْمُ مَنْ كَذَّبَ بِالْبَعْثِ؟",
+      "options": [
+        "They are sinful but believers",
+        "They are ignorant",
+        "They have committed Kufr (Disbelief)",
+        "They are excused"
+      ],
+      "optionsArabic": [
+        "هُمْ عُصَاةٌ لَكِنْ مُؤْمِنُونَ",
+        "هُمْ جُهَّالٌ",
+        "كَفَرُوا (خَرَجُوا مِنَ الْمِلَّةِ)",
+        "هُمْ مَعْذُورُونَ"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Allah says: 'Those who disbelieve have claimed that they will never be resurrected.'",
+      "explanationArabic": "قَالَ تَعَالَى: ﴿زَعَمَ الَّذِينَ كَفَرُوا أَنْ لَنْ يُبْعَثُوا﴾."
+    },
+    {
+      "id": 10,
+      "question": "With which Surah was the Prophet ﷺ made a Messenger (Rasool)?",
+      "questionArabic": "بِأَيِّ سُورَةٍ أُرْسِلَ النَّبِيُّ ﷺ (صَارَ رَسُولًا)؟",
+      "options": [
+        "Surah Al-Alaq (Iqra)",
+        "Surah Al-Muddathir",
+        "Surah Al-Fatiha",
+        "Surah Yasin"
+      ],
+      "optionsArabic": [
+        "سُورَةُ الْعَلَقِ (اقْرَأْ)",
+        "سُورَةُ الْمُدَّثِّرِ",
+        "سُورَةُ الْفَاتِحَةِ",
+        "سُورَةُ يس"
+      ],
+      "correctAnswer": 1,
+      "explanation": "He was made a Prophet (Nabi) with 'Iqra' and a Messenger (Rasool) with 'Al-Muddathir' (Arise and Warn).",
+      "explanationArabic": "نُبِّئَ بِـ (اقْرَأْ) وَأُرْسِلَ بِـ (الْمُدَّثِّرِ)."
     }
   ]
 }

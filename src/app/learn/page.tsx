@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link"; // Import Link
 import { 
   BookOpen, ChevronLeft, ChevronRight, PlayCircle, Menu, 
-  Sparkles, BookMarked, Send, User, Bot, FileText, Download, X, Lightbulb 
+  Sparkles, BookMarked, Send, User, Bot, FileText, Download, X, Lightbulb, GraduationCap 
 } from "lucide-react";
 import bookData from "../../data/usool.json"; 
 
@@ -23,7 +24,7 @@ type Message = {
 export default function ReaderPage() {
   const [showTranslation, setShowTranslation] = useState(true);
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-  const [showTakeaways, setShowTakeaways] = useState(false); // New state for popup
+  const [showTakeaways, setShowTakeaways] = useState(false);
   
   // BOOK NAVIGATION STATE
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
@@ -93,7 +94,9 @@ export default function ReaderPage() {
           <button onClick={() => setSidebarOpen(!isSidebarOpen)} className="p-2 text-emerald-800 hover:bg-emerald-50 rounded-lg transition-all">
             <Menu size={20} />
           </button>
-          <div className="flex items-center gap-3">
+          
+          {/* HOME BUTTON LINK */}
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
             <div className="relative w-8 h-8 flex items-center justify-center">
               <div className="absolute inset-0 bg-emerald-600 rounded-lg rotate-45 opacity-80"></div>
               <div className="absolute inset-0 bg-emerald-800 rounded-lg -rotate-12 opacity-80"></div>
@@ -103,22 +106,33 @@ export default function ReaderPage() {
               <h1 className="font-bold text-sm text-emerald-950 tracking-tight leading-none font-serif">{bookData.bookTitle}</h1>
               <p className="text-[10px] text-emerald-600 font-medium mt-0.5 uppercase tracking-widest">Al-Usool Al-Thalatha</p>
             </div>
-          </div>
+          </Link>
         </div>
         
-        <div className="flex items-center gap-1 bg-emerald-50/50 p-1 rounded-full border border-emerald-100">
-          <button 
-            onClick={() => setShowTranslation(!showTranslation)}
-            className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${showTranslation ? 'bg-white text-emerald-800 shadow-sm border border-emerald-100' : 'text-emerald-600 hover:text-emerald-800'}`}
-          >
-            English
-          </button>
-          <button 
-             onClick={() => setShowTranslation(!showTranslation)}
-             className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${!showTranslation ? 'bg-white text-emerald-800 shadow-sm border border-emerald-100' : 'text-emerald-600 hover:text-emerald-800'}`}
-          >
-            عربي
-          </button>
+        <div className="flex items-center gap-3">
+            {/* NEW START EXAM BUTTON */}
+            <Link 
+              href="/quiz" 
+              className="hidden md:flex items-center gap-2 px-4 py-1.5 bg-emerald-900 text-white rounded-full text-xs font-bold uppercase tracking-wider hover:bg-emerald-800 shadow-md transition-all"
+            >
+              <GraduationCap size={14} /> Start Exam
+            </Link>
+
+            {/* Language Toggle */}
+            <div className="flex items-center gap-1 bg-emerald-50/50 p-1 rounded-full border border-emerald-100">
+              <button 
+                onClick={() => setShowTranslation(!showTranslation)}
+                className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${showTranslation ? 'bg-white text-emerald-800 shadow-sm border border-emerald-100' : 'text-emerald-600 hover:text-emerald-800'}`}
+              >
+                English
+              </button>
+              <button 
+                onClick={() => setShowTranslation(!showTranslation)}
+                className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${!showTranslation ? 'bg-white text-emerald-800 shadow-sm border border-emerald-100' : 'text-emerald-600 hover:text-emerald-800'}`}
+              >
+                عربي
+              </button>
+            </div>
         </div>
       </header>
 
@@ -169,7 +183,7 @@ export default function ReaderPage() {
             <div className="max-w-4xl mx-auto flex flex-col gap-6">
               
               {/* THE MANUSCRIPT CARD (Full Height/Maximized) */}
-              <div className="relative group perspective-1000 min-h-[85vh]"> {/* Added min-h-[85vh] to stretch it */}
+              <div className="relative group perspective-1000 min-h-[85vh]">
                 <div className="absolute -inset-1 bg-gradient-to-r from-emerald-100 to-amber-100 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                 
                 <div className="h-full bg-[#FFFCF5] rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.05)] border border-[#E8E1D0] p-8 md:p-14 flex flex-col justify-center relative overflow-hidden transition-all duration-500">
@@ -186,8 +200,8 @@ export default function ReaderPage() {
                     <div className="relative">
                       <span className="text-6xl text-emerald-100/50 absolute -top-8 left-1/2 -translate-x-1/2 font-serif select-none">﴾ ﴿</span>
                       <p className="text-3xl md:text-5xl lg:text-5xl leading-[2.4] text-emerald-950 font-[var(--font-amiri)] drop-shadow-sm whitespace-pre-line" dir="rtl">
-  {section.arabic}
-</p>
+                        {section.arabic}
+                      </p>
                     </div>
                     
                     {/* Divider */}
@@ -199,8 +213,8 @@ export default function ReaderPage() {
                     {showTranslation && (
                       <div className="animate-in fade-in slide-in-from-bottom-3 duration-700">
                         <p className="text-lg md:text-xl leading-relaxed text-slate-700 font-[var(--font-playfair)] whitespace-pre-line">
-  {section.english}
-</p>
+                          {section.english}
+                        </p>
                       </div>
                     )}
                   </div>
@@ -224,7 +238,7 @@ export default function ReaderPage() {
                    <ChevronLeft size={20} />
                 </button>
 
-                {/* Chapter Info (Click to see syllabus maybe later) */}
+                {/* Chapter Info */}
                 <div className="hidden sm:flex flex-col items-center px-4 w-40">
                    <span className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest truncate max-w-full">
                      {currentChapter.title}
