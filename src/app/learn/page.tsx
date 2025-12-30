@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import Link from "next/link"; // Import Link
+import Link from "next/link";
 import { 
   BookOpen, ChevronLeft, ChevronRight, PlayCircle, Menu, 
   Sparkles, BookMarked, Send, User, Bot, FileText, Download, X, Lightbulb, GraduationCap 
@@ -45,7 +45,38 @@ export default function ReaderPage() {
   const currentChapter = bookData.chapters[currentChapterIndex];
   const section: Section = currentChapter.sections[currentSectionIndex];
 
-  // LOGIC: Navigation
+  // --- STORAGE LOGIC (Multi-User Support) ---
+
+  // 1. Load Progress on Start
+  useEffect(() => {
+    const userSession = localStorage.getItem("currentUser");
+    const userId = userSession ? JSON.parse(userSession).id : "guest";
+    const storageKey = `usool-progress-${userId}`; // Unique key per user
+
+    const saved = localStorage.getItem(storageKey);
+    if (saved) {
+      const { chapter, section } = JSON.parse(saved);
+      // Validate bounds
+      if (chapter < bookData.chapters.length) {
+        setCurrentChapterIndex(chapter);
+        setCurrentSectionIndex(section);
+      }
+    }
+  }, []);
+
+  // 2. Save Progress on Change
+  useEffect(() => {
+    const userSession = localStorage.getItem("currentUser");
+    const userId = userSession ? JSON.parse(userSession).id : "guest";
+    const storageKey = `usool-progress-${userId}`;
+
+    localStorage.setItem(storageKey, JSON.stringify({ 
+      chapter: currentChapterIndex, 
+      section: currentSectionIndex 
+    }));
+  }, [currentChapterIndex, currentSectionIndex]);
+
+  // --- NAVIGATION LOGIC ---
   const handleNext = () => {
     if (currentSectionIndex < currentChapter.sections.length - 1) {
       setCurrentSectionIndex(prev => prev + 1);
@@ -65,7 +96,7 @@ export default function ReaderPage() {
     }
   };
 
-  // LOGIC: Chat
+  // --- CHAT LOGIC ---
   const handleSendMessage = async (e?: React.FormEvent) => {
     e?.preventDefault();
     if (!input.trim()) return;
@@ -95,7 +126,7 @@ export default function ReaderPage() {
             <Menu size={20} />
           </button>
           
-          {/* HOME BUTTON LINK */}
+          {/* HOME LINK */}
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
             <div className="relative w-8 h-8 flex items-center justify-center">
               <div className="absolute inset-0 bg-emerald-600 rounded-lg rotate-45 opacity-80"></div>
@@ -110,7 +141,7 @@ export default function ReaderPage() {
         </div>
         
         <div className="flex items-center gap-3">
-            {/* NEW START EXAM BUTTON */}
+            {/* EXAM BUTTON */}
             <Link 
               href="/quiz" 
               className="hidden md:flex items-center gap-2 px-4 py-1.5 bg-emerald-900 text-white rounded-full text-xs font-bold uppercase tracking-wider hover:bg-emerald-800 shadow-md transition-all"
@@ -182,7 +213,7 @@ export default function ReaderPage() {
           <div className="flex-1 overflow-y-auto p-4 md:p-8 lg:p-12 scroll-smooth pb-32">
             <div className="max-w-4xl mx-auto flex flex-col gap-6">
               
-              {/* THE MANUSCRIPT CARD (Full Height/Maximized) */}
+              {/* THE MANUSCRIPT CARD */}
               <div className="relative group perspective-1000 min-h-[85vh]">
                 <div className="absolute -inset-1 bg-gradient-to-r from-emerald-100 to-amber-100 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-1000"></div>
                 
@@ -224,7 +255,7 @@ export default function ReaderPage() {
             </div>
           </div>
 
-          {/* FLOATING CONTROL DOCK (Replaces static buttons) */}
+          {/* FLOATING CONTROL DOCK */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50">
              <div className="flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-emerald-100/50 p-2 rounded-full shadow-2xl shadow-emerald-900/10 ring-1 ring-white/50">
                 
@@ -269,7 +300,7 @@ export default function ReaderPage() {
              </div>
           </div>
 
-          {/* TAKEAWAYS POPUP MODAL */}
+          {/* TAKEAWAYS MODAL */}
           {showTakeaways && (
             <div className="absolute inset-0 z-[60] flex items-center justify-center p-4 bg-emerald-900/20 backdrop-blur-sm animate-in fade-in duration-200">
                <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full border border-emerald-100 relative overflow-hidden animate-in zoom-in-95 duration-200">
@@ -315,7 +346,7 @@ export default function ReaderPage() {
 
         </main>
 
-        {/* RIGHT SIDEBAR */}
+        {/* RIGHT SIDEBAR (Resources/AI) */}
         <aside className="w-80 bg-white/80 backdrop-blur-md border-l border-emerald-100 hidden xl:flex flex-col shrink-0 z-40">
            <div className="flex-1 flex flex-col h-full overflow-hidden">
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
