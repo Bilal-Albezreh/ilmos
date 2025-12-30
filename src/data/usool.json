@@ -1,76 +1,263 @@
 {
   "bookTitle": "The Three Fundamental Principles",
-  "description": "A comprehensive guide to the questions of the grave.",
   "chapters": [
     {
       "id": "intro-1",
-      "title": "The Four Matters",
+      "title": "Introduction: The Four Matters",
       "sections": [
         {
-          "id": "intro-1-1",
-          "arabic": "اعْلَمْ - رَحِمَكَ اللهُ - أَنَّهُ يَجِبُ عَلَيْنَا تَعَلَّمُ أَرْبَعِ مَسَائِلَ: الأُولَى العِلْمُ، وهُوَ مَعْرِفَةُ اللهِ، وَمَعْرِفَةُ نَبِيِّهِ، وَمَعْرِفَةُ دِينِ الإِسْلامِ بِالأَدِلَّةِ",
-          "english": "Know, may Allah have mercy upon you, that it is obligatory upon us to learn four matters. The First: Knowledge, which is knowledge of Allah, knowledge of His Prophet, and knowledge of the religion of Islam with evidences.",
-          "videoId": "dQw4w9WgXcQ",
-          "takeaways": ["Seeking knowledge is obligatory", "Knowledge precedes speech and action"]
-        },
-        {
-          "id": "intro-1-2",
-          "arabic": "الثَّانِيَةُ: العَمَلُ بِهِ. الثَّالِثَةُ: الدَّعْوَةُ إِلَيْهِ. الرَّابِعَةُ: الصَّبْرُ عَلَى الْأَذَى فِيهِ",
-          "english": "The Second: Acting upon it. The Third: Calling to it. The Fourth: Patience with the harm that comes with it.",
+          "id": "1-1",
+          "arabic": "اعْلَمْ - رَحِمَكَ اللهُ - أَنَّهُ يَجِبُ عَلَيْنَا تَعَلَّمُ أَرْبَعِ مَسَائِلَ : الأُولَى العِلْمُ، وهُوَ مَعْرِفَةُ اللهِ، وَمَعْرِفَةُ نَبِيِّهِ، وَمَعْرِفَةُ دِينِ الإِسْلامِ بِالأَدِلَّةِ. الثَّانِيَةُ: العَمَلُ بِهِ. الثَّالِثَةُ: الدَّعْوَةُ إِلَيْهِ. الرَّابِعَةُ: الصَّبْرُ عَلَى الْأَذَى فِيهِ.\n\nوَالدَّلِيلُ قَوْلُه تَعَالَى: ﴿وَالْعَصْرِ * إِنَّ الْإِنسَانَ لَفِي خُسْرٍ * إِلَّا الَّذِينَ آمَنُوا وَعَمِلُوا الصَّالِحَاتِ وَتَوَاصَوْا بِالْحَقِّ وَتَوَاصَوْا بِالصَّبْرِ﴾.\n\nقَالَ الشَّافِعِيُّ رَحِمَهُ اللهُ تَعَالَى: لَوْ مَا أَنْزَلَ اللَّهُ حُجَّةً عَلَى خَلْقِهِ إِلَّا هَذِهِ السُّورَةَ لَكَفَتْهُمْ. وَقَالَ البُخَارِيُّ رَحِمَهُ اللهُ تَعَالَى: بَابُ الْعِلْمِ قَبْلَ الْقَوْلِ وَالْعَمَلِ وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿فَاعْلَمْ أَنَّهُ لَا إِلَهَ إِلَّا اللَّهُ وَاسْتَغْفِرْ لِذَنْبِكَ﴾ فَبَدَأَ بِالْعِلْمِ قَبْلَ الْقَوْلِ وَالْعَمَلِ",
+          "english": "Know, may Allah have mercy upon you, that it is obligatory upon us to learn four matters. The First: Knowledge, which is knowledge of Allah, knowledge of His Prophet, and knowledge of the religion of Islam with evidences. The Second: Acting upon it. The Third: Calling to it. The Fourth: Patience with the harm that comes with it.\n\nThe evidence is His saying: 'By Time. Indeed, mankind is in loss. Except those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.'\n\nImam Ash-Shafi'i said: 'If Allah had not revealed any proof against His creation except this Surah, it would have sufficed them.' Al-Bukhari said: 'Chapter: Knowledge comes before speech and action.' The evidence is His saying: 'So know that there is no deity except Allah and ask forgiveness for your sin.' He began with knowledge before speech and action.",
           "videoId": "",
-          "takeaways": ["Knowledge requires action", "Patience is essential for the caller"]
+          "takeaways": [
+            "Seeking knowledge is the first duty", 
+            "Knowledge must be based on evidence", 
+            "Action must follow knowledge", 
+            "Patience is required for the caller",
+            "Importance of Surah Al-Asr",
+            "Knowledge precedes speech and action"
+          ]
         }
       ]
     },
     {
       "id": "intro-2",
-      "title": "The Three Matters",
+      "title": "Introduction: The Three Matters",
       "sections": [
         {
-          "id": "intro-2-1",
-          "arabic": "اعْلَمْ - رَحِمَكَ اللهُ - أَنَّهُ يَجِبُ عَلَى كُلِّ مُسْلِمٍ وَمُسْلِمَةٍ تَعَلَّمُ ثَلَاثِ هَذِهِ المَسَائِلِ وَالْعَمَلُ بِهِنَّ : الأُولَى : أَنَّ اللَّهَ خَلَقَنَا وَرَزَقَنَا وَلَمْ يَتْرُكْنَا هَمَلاً",
-          "english": "Know, may Allah have mercy upon you, that it is obligatory on every Muslim, male and female, to learn these three matters and act upon them. The First: That Allah created us, sustained us, and did not leave us neglected.",
+          "id": "2-1",
+          "arabic": "اعْلَمْ - رَحِمَكَ اللهُ - أَنَّهُ يَجِبُ عَلَى كُلِّ مُسْلِمٍ وَمُسْلِمَةٍ تَعَلُّمُ ثَلَاثِ هَذِهِ المَسَائِلِ وَالْعَمَلُ بِهِنَّ: الأُولَى: أَنَّ اللَّهَ خَلَقَنَا وَرَزَقَنَا وَلَمْ يَتْرُكْنَا هَمَلًا، بَلْ أَرْسَلَ إِلَيْنَا رَسُولًا، فَمَنْ أَطَاعَهُ دَخَلَ الْجَنَّةَ، وَمَنْ عَصَاهُ دَخَلَ النَّارَ. وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿إِنَّا أَرْسَلْنَا إِلَيْكُمْ رَسُولًا شَاهِدًا عَلَيْكُمْ كَمَا أَرْسَلْنَا إِلَى فِرْعَوْنَ رَسُولًا * فَعَصَى فِرْعَوْنُ الرَّسُولَ فَأَخَذْنَاهُ أَخْذَا وَبِيلًا﴾.\n\nالثَّانِيَةُ: أَنَّ اللهَ لا يَرْضَى أَنْ يُشْرَكَ مَعَهُ أَحَدٌ فِي عِبَادَتِهِ، لَا مَلَكٌ مُقَرَّبٌ، وَلا نَبِيّ مُرْسَلٌ. وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿وَأَنَّ الْمَسَاجِدَ لِلَّهِ فَلَا تَدْعُوا مَعَ اللَّهِ أَحَدًا﴾.\n\nالثَّالِثَةُ: أَنَّ مَنْ أَطَاعَ الرَّسُولَ وَوَحَّدَ اللهَ لَا يَجُوزُ لَهُ مُوَالاَةُ مَنْ حَادَّ اللهَ وَرَسُولَهُ وَلَوْ كَانَ أَقْرَبَ قَرِيبٍ. وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿لَا تَجِدُ قَوْمًا يُؤْمِنُونَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ يُوَادُّونَ مَنْ حَادَّ اللَّهَ وَرَسُولَهُ وَلَوْ كَانُوا آبَاءَهُمْ أَوْ أَبْنَاءَهُمْ أَوْ إِخْوَانَهُمْ أَوْ عَشِيرَتَهُمْ أُولَئِكَ كَتَبَ فِي قُلُوبِهِمُ الْإِيمَانَ وَأَيَّدَهُمْ بِرُوحٍ مِنْهُ وَيُدْخِلُهُمْ جَنَّاتٍ تَجْرِي مِنْ تَحْتِهَا الْأَنْهَارُ خَالِدِينَ فِيهَا رَضِيَ اللَّهُ عَنْهُمْ وَرَضُوا عَنْهُ أُولَئِكَ حِزْبُ اللَّهِ أَلَا إِنَّ حِزْبَ اللَّهِ هُمُ الْمُفْلِحُونَ﴾.",
+          "english": "Know, may Allah have mercy upon you, that it is obligatory upon every Muslim, male and female, to learn these three matters and act upon them: The First: That Allah created us, provided for us, and He did not leave us without a purpose. Rather, He sent a Messenger to us. Whoever obeys him will enter Paradise, and whoever disobeys him will enter the Fire. The evidence is His saying: 'Indeed, We have sent to you a Messenger as a witness upon you just as We sent to Pharaoh a messenger. But Pharaoh disobeyed the messenger, so We seized him with a ruinous seizure.'\n\nThe Second: That Allah is not pleased that anyone should be associated with Him in His worship, neither a near angel nor a sent prophet. The evidence is His saying: 'And the mosques are for Allah, so do not call upon anyone along with Allah.'\n\nThe Third: That whoever obeys the Messenger and singles out Allah in worship is not permitted to have loyalty to those who oppose Allah and His Messenger, even if they were the closest of relatives. The evidence is His saying: 'You will not find a people who believe in Allah and the Last Day having affection for those who oppose Allah and His Messenger...' (Surah Al-Mujadila 58:22).",
           "videoId": "",
-          "takeaways": ["Allah is the Creator and Sustainer", "We have a purpose"]
+          "takeaways": [
+            "We were created for a purpose (Worship)",
+            "Obeying the Messenger is the key to Paradise",
+            "Shirk is rejected absolutely (even with angels/prophets)",
+            "Al-Walaa wal-Baraa (Loyalty is to Allah alone)"
+          ]
         }
       ]
     },
     {
-      "id": "principle-1",
+      "id": "intro-3",
+      "title": "Introduction: Al-Hanafiyyah",
+      "sections": [
+        {
+          "id": "3-1",
+          "arabic": "اعْلَمْ - أَرْشَدَكَ اللهُ لِطَاعَتِهِ - أَنَّ الْحَنِيفِيَّةَ مِلَّةَ إِبْرَاهِيمَ: أَنْ تَعْبُدَ اللهَ وَحْدَهُ مُخْلِصًا لَهُ الدِّينَ، وَبِذَلِكَ أَمَرَ اللهُ جَمِيعَ النَّاسِ وَخَلَقَهُمْ لَهَا؛ كَمَا قَالَ تَعَالَى: ﴿وَمَا خَلَقْتُ الْجِنَّ وَالْإِنسَ إِلَّا لِيَعْبُدُونِ﴾.\n\nوَمَعْنَى ﴿يَعْبُدُونِ﴾: يُوَحِّدُونِ. وَأَعْظَمُ مَا أَمَرَ اللهُ بِهِ التَّوْحِيدُ: وَهُوَ إِفْرَادُ اللهِ بِالْعِبَادَةِ. وَأَعْظَمُ مَا نَهَى عَنْهُ الشِّرْكُ: وَهُوَ دَعْوَةُ غَيْرِهِ مَعَهُ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿وَاعْبُدُوا اللَّهَ وَلَا تُشْرِكُوا بِهِ شَيْئًا﴾.",
+          "english": "Know, may Allah guide you to His obedience, that Al-Hanafiyyah, the religion of Ibrahim, is that you worship Allah alone, making the religion sincere for Him. And with this, Allah commanded all of mankind and created them for it, as He, the Most High, said: 'And I did not create the jinn and mankind except to worship Me.'\n\nAnd the meaning of 'worship Me' is to single Me out in Tawheed. The greatest thing Allah has commanded is Tawheed, which is singling out Allah in worship. And the greatest thing He has prohibited is Shirk, which is calling upon other than Him along with Him. The evidence is His saying, the Most High: 'Worship Allah and associate nothing with Him.'",
+          "videoId": "",
+          "takeaways": [
+            "Definition of Al-Hanafiyyah (Sincere Worship)",
+            "The Purpose of Creation is Tawheed",
+            "Tawheed is the greatest command",
+            "Shirk is the greatest prohibition"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "p1",
       "title": "1st Principle: Knowledge of Allah",
       "sections": [
         {
           "id": "p1-1",
-          "arabic": "فَإِذَا قِيلَ لَكَ : مَنْ رَبُّكَ؟ فَقُلْ: رَبِّيَ اللَّهُ الَّذِي رَبَّانِي وَرَبَّي جَمِيعَ الْعَالَمِينَ بِنِعَمِهِ، وَهُوَ مَعْبُودِي لِيْسَ لِي مَعْبُودٌ سِوَاهُ",
-          "english": "So if it is said to you: 'Who is your Lord?', say: 'My Lord is Allah, who has nurtured me and all of the worlds with His favors. He is my object of worship; I have no other object of worship but Him.'",
+          "arabic": "فَإِذَا قِيلَ لَكَ: مَنْ رَبُّكَ؟ فَقُلْ: رَبِّيَ اللَّهُ الَّذِي رَبَّانِي وَرَبَّى جَمِيعَ الْعَالَمِينَ بِنِعَمِهِ، وَهُوَ مَعْبُودِي لَيْسَ لِي مَعْبُودٌ سِوَاهُ. وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ﴾.\n\nوَكُلُّ مَنْ سِوَى اللَّهِ عَالَمٌ، وَأَنَا وَاحِدٌ مِنْ ذَلِكَ الْعَالَمِ.",
+          "english": "So if it is said to you: 'Who is your Lord?', say: 'My Lord is Allah, who has nurtured me and all of the worlds with His favors. He is my object of worship; I have no other object of worship but Him.'\n\nThe evidence is His saying: 'All praise is due to Allah, Lord of the worlds.'\n\nAnd everything other than Allah is 'Alam' (world/creation), and I am one of that world.",
           "videoId": "",
-          "takeaways": ["Definition of Rabb (Lord)", "Exclusive right of worship"]
+          "takeaways": [
+            "Definition of 'Rabb' (The Nurturer/Sustainer)",
+            "Allah is the only true object of worship",
+            "We are part of the 'Alam' (Creation)"
+          ]
+        },
+        {
+          "id": "p1-2",
+          "arabic": "فَإِذَا قِيلَ لَكَ: بِمَ عَرَفْتَ رَبَّكَ؟ فَقُلْ: بِآيَاتِهِ وَمَخْلُوقَاتِهِ، وَمِنْ آيَاتِهِ اللَّيْلُ وَالنَّهَارُ وَالشَّمْسُ وَالْقَمَرُ، وَمِنْ مَخْلُوقَاتِهِ السَّمَاوَاتُ السَّبْعُ وَالْأَرَضُونَ السَّبْعُ وَمَا فِيهِنَّ وَمَا بَيْنَهُمَا.\n\nوَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿وَمِنْ آيَاتِهِ اللَّيْلُ وَالنَّهَارُ وَالشَّمْسُ وَالْقَمَرُ لَا تَسْجُدُوا لِلشَّمْسِ وَلَا لِلْقَمَرِ وَاسْجُدُوا لِلَّهِ الَّذِي خَلَقَهُنَّ إِنْ كُنْتُمْ إِيَّاهُ تَعْبُدُونَ﴾.\n\nوَقَوْلُهُ تَعَالَى: ﴿إِنَّ رَبَّكُمُ اللَّهُ الَّذِي خَلَقَ السَّمَاوَاتِ وَالْأَرْضَ فِي سِتَّةِ أَيَّامٍ ثُمَّ اسْتَوَى عَلَى الْعَرْشِ يُغْشِي اللَّيْلَ النَّهَارَ يَطْلُبُهُ حَثِيثًا وَالشَّمْسَ وَالْقَمَرَ وَالنُّجُومَ مُسَخَّرَاتٍ بِأَمْرِهِ أَلَا لَهُ الْخَلْقُ وَالْأَمْرُ تَبَارَكَ اللَّهُ رَبُّ الْعَالَمِينَ﴾.",
+          "english": "If it is said to you: 'How did you know your Lord?', say: 'By His signs and His creations. Among His signs are the night, the day, the sun, and the moon. Among His creations are the seven heavens, the seven earths, whoever is in them, and whatever is between them.'\n\nThe evidence is His saying: 'And of His signs are the night and day and the sun and moon. Do not prostrate to the sun or to the moon, but prostrate to Allah, who created them, if it should be Him that you worship.'\n\nAnd His saying: 'Indeed, your Lord is Allah, who created the heavens and earth in six days and then established Himself above the Throne... Unquestionably, His is the creation and the command. Blessed is Allah, Lord of the worlds.'",
+          "videoId": "",
+          "takeaways": [
+            "Knowing Allah through His Signs (Ayat)",
+            "Difference between Signs (Sun/Moon) and Creation (Heavens/Earth)",
+            "Prohibition of worshipping the creation"
+          ]
+        },
+        {
+          "id": "p1-3",
+          "arabic": "وَالرَّبُّ هُوَ الْمَعْبُودُ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿يَا أَيُّهَا النَّاسُ اعْبُدُوا رَبَّكُمُ الَّذِي خَلَقَكُمْ وَالَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ * الَّذِي جَعَلَ لَكُمُ الْأَرْضَ فِرَاشًا وَالسَّمَاءَ بِنَاءً وَأَنْزَلَ مِنَ السَّمَاءِ مَاءً فَأَخْرَجَ بِهِ مِنَ الثَّمَرَاتِ رِزْقًا لَكُمْ فَلَا تَجْعَلُوا لِلَّهِ أَنْدَادًا وَأَنْتُمْ تَعْلَمُونَ﴾.\n\nقَالَ ابْنُ كَثِيرٍ - رَحِمَهُ اللهُ تَعَالَى -: (الْخَالِقُ لِهَذِهِ الأَشْيَاءِ هُوَ الْمُسْتَحِقُّ لِلْعِبَادَةِ).",
+          "english": "The Lord is the One who is worshipped. The evidence is His saying: 'O mankind, worship your Lord, who created you and those before you, that you may become righteous...'\n\nIbn Kathir (may Allah have mercy on him) said: 'The Creator of these things is the One who deserves to be worshipped.'",
+          "videoId": "",
+          "takeaways": [
+            "Rububiyyah (Creating) necessitates Uluhiyyah (Worship)",
+            "Ibn Kathir's golden rule of worship",
+            "Shirk is setting up rivals to Allah"
+          ]
+        },
+        {
+          "id": "p1-4",
+          "arabic": "وَأَنْوَاعُ الْعِبَادَةِ الَّتِي أَمَرَ اللهُ بِهَا مِثْلُ الإِسْلامِ، وَالإِيْمَانِ، وَالإِحْسَانِ، وَمِنْهُ الدُّعَاءُ، وَالْخَوفُ، وَالرَّجَاءُ، وَالتَّوَكُّلُ، وَالرَّغْبَةُ، وَالرَّهْبَةُ، وَالْخُشُوعُ، وَالْخَشْيَةُ، وَالإِنَابَةُ، وَالاسْتِعَانَةُ، وَالاسْتِعَاذَةُ، وَالاسْتِغَاثَةُ، وَالذَّبْحُ، وَالنَّذْرُ، وَغَيْرُ ذَلِكَ مِنْ أَنْوَاعِ الْعِبَادَةِ الَّتِي أَمَرَ اللهُ بِهَا؛ كُلُّهَا لِلَّهِ تَعَالَى.\n\nوَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿وَأَنَّ الْمَسَاجِدَ لِلَّهِ فَلَا تَدْعُوا مَعَ اللَّهِ أَحَدًا﴾.\n\nفَمَنْ صَرَفَ مَنْهَا شَيْئًا لِغَيْرِ اللهِ فَهُوَ مُشْرِكٌ كَافِرٌ.",
+          "english": "The types of worship commanded by Allah include Islam, Iman, and Ihsan. From it is Dua (supplication), Fear, Hope, Reliance, Desire, Dread, Humility, Awe, Repentance, Seeking Help, Seeking Refuge, Seeking Rescue, Sacrifice, and Vows, and other types of worship commanded by Allah—all of them are for Allah, the Most High.\n\nThe evidence is His saying: 'And the mosques are for Allah, so do not call upon anyone along with Allah.'\n\nWhoever directs any part of these to other than Allah is a Mushrik (polytheist), a Kafir (disbeliever).",
+          "videoId": "",
+          "takeaways": [
+            "Worship includes actions of the heart and limbs",
+            "Directing ANY worship to others is Major Shirk",
+            "The comprehensive list of Ibadah"
+          ]
+        },
+        {
+          "id": "p1-5",
+          "arabic": "وَفِي الْحَدِيثِ: «الدُّعَاءُ مُخُّ الْعِبَادَةِ». وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿وَقَالَ رَبُّكُمُ ادْعُونِي أَسْتَجِبْ لَكُمْ إِنَّ الَّذِينَ يَسْتَكْبِرُونَ عَنْ عِبَادَتِي سَيَدْخُلُونَ جَهَنَّمَ دَاخِرِينَ﴾.\n\nوَدَلِيلُ الْخَوْفِ قَوْلُهُ تَعَالَى: ﴿فَلَا تَخَافُوهُمْ وَخَافُونِي إِنْ كُنْتُمْ مُؤْمِنِينَ﴾.\n\nوَدَلِيلُ الرَّجَاءِ قَوْلُهُ تَعَالَى: ﴿فَمَنْ كَانَ يَرْجُو لِقَاءَ رَبِّهِ فَلْيَعْمَلْ عَمَلًا صَالِحًا وَلَا يُشْرِكْ بِعِبَادَةِ رَبِّهِ أَحَدًا﴾.\n\nوَدَلِيلُ التَّوَكُّلِ قَوْلُهُ تَعَالَى: ﴿وَعَلَى اللَّهِ فَتَوَكَّلُوا إِنْ كُنْتُمْ مُؤْمِنِينَ﴾ وَقَوْلُهُ: ﴿وَمَنْ يَتَوَكَّلْ عَلَى اللَّهِ فَهُوَ حَسْبُهُ﴾.",
+          "english": "And in the Hadith: 'Dua is the essence of worship.' The evidence is His saying: 'And your Lord says, Call upon Me; I will respond to you. Indeed, those who disdain My worship will enter Hell [rendered] contemptible.'\n\nThe evidence for Fear (Khawf): 'So do not fear them, but fear Me, if you are believers.'\n\nThe evidence for Hope (Raja): 'So whoever would hope for the meeting with his Lord - let him do righteous work and not associate in the worship of his Lord anyone.'\n\nThe evidence for Trust (Tawakkul): 'And upon Allah rely, if you should be believers.' And His saying: 'And whoever relies upon Allah - then He is sufficient for him.'",
+          "videoId": "",
+          "takeaways": [
+            "Dua is the core of worship",
+            "Fear of creation vs. Fear of Allah",
+            "Conditions of Hope (Action + Tawheed)",
+            "Tawakkul is a condition of Iman"
+          ]
         }
       ]
     },
     {
-      "id": "principle-2",
-      "title": "2nd Principle: The Religion",
+      "id": "p2",
+      "title": "2nd Principle: Knowledge of Islam",
       "sections": [
         {
           "id": "p2-1",
-          "arabic": "الأَصْلُ الثَّانِي: مَعْرِفَةُ دِينِ الإِسْلامِ بِالْأَدِلَّةِ، وَهُوَ الاسْتِسْلَامُ لِلَّهِ بِالتَّوْحِيدِ وَالانْقِيَادُ لَهُ بِالطَّاعَةِ وَالْبَرَاءَةُ مِنَ الشِّرْكِ وَأَهْلِهِ",
-          "english": "The Second Fundamental Principle: Knowledge of the religion of Islam with evidences. It is submission to Allah with Tawheed, compliance to Him with obedience, and dissociation from Shirk and its people.",
+          "arabic": "الأَصْلُ الثَّانِي: مَعْرِفَةُ دِينِ الإِسْلامِ بِالْأَدِلَّةِ، وَهُوَ الاسْتِسْلَامُ لِلَّهِ بِالتَّوْحِيدِ، وَالانْقِيَادُ لَهُ بِالطَّاعَةِ، وَالْبَرَاءَةُ مِنَ الشِّرْكِ وَأَهْلِهِ. وَهُوَ ثَلاثُ مَرَاتِبَ: الإِسْلامُ، وَالإِيمَانُ، وَالإِحْسَانُ. وَكُلُّ مَرْتَبَةٍ لَهَا أَرْكَانٌ.\n\nفَأَرْكَانُ الإِسْلامِ خَمْسَةٌ: شَهَادَةُ أَنْ لاَ إِلَهَ إِلَّا اللهُ وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ، وَإِقَامُ الصَّلاةِ، وَإِيتَاءُ الزَّكَاةِ، وَصَوْمُ رَمَضَانَ، وَحَجُّ بَيْتِ اللهِ الحَرَامِ.",
+          "english": "The Second Principle: Knowledge of the religion of Islam with evidences.\n\nDefinition of Islam: It is submission to Allah through Tawheed, compliance with Him through obedience, and dissociation from Shirk and its people.\n\nIt consists of three levels: Islam, Iman, and Ihsan. Each level has its own pillars.\n\nThe Pillars of Islam are five: The testimony that there is no deity worthy of worship except Allah and that Muhammad is the Messenger of Allah, establishing the Prayer (Salah), paying the Zakah, fasting Ramadan, and the Pilgrimage (Hajj) to the Sacred House of Allah.",
           "videoId": "",
-          "takeaways": ["Definition of Islam", "Al-Walaa wal-Baraa"]
+          "takeaways": [
+            "Definition of Islam (Submission + Obedience + Baraa)",
+            "The 3 Levels of Religion",
+            "The 5 Pillars of Islam"
+          ]
+        },
+        {
+          "id": "p2-2",
+          "arabic": "فَدَلِيلُ الشَّهَادَةِ قَوْلُهُ تَعَالَى: ﴿شَهِدَ اللَّهُ أَنَّهُ لَا إِلَهَ إِلَّا هُوَ وَالْمَلَائِكَةُ وَأُولُو الْعِلْمِ قَائِمًا بِالْقِسْطِ لَا إِلَهَ إِلَّا هُوَ الْعَزِيزُ الْحَكِيمُ﴾.\n\nوَمَعْنَاهَا: لَا مَعْبُودَ بِحَقٍّ إِلَّا الله. (لَا إِلَهَ) نَافِيًا جَمِيعَ مَا يُعْبَدُ مِنْ دُونِ اللهِ، (إِلَّا اللهُ) مُثْبِتًا الْعِبَادَةَ لِلَّهِ وَحْدَهُ لَا شَرِيكَ لَهُ فِي عِبَادَتِهِ، كَمَا أَنَّهُ لَا شَرِيكَ لَهُ فِي مُلْكِهِ.\n\nوَتَفْسِيرُهَا الَّذِي يُوَضِّحُهَا قَوْلُهُ تَعَالَى: ﴿وَإِذْ قَالَ إِبْرَاهِيمُ لِأَبِيهِ وَقَوْمِهِ إِنَّنِي بَرَاءٌ مِمَّا تَعْبُدُونَ * إِلَّا الَّذِي فَطَرَنِي فَإِنَّهُ سَيَهْدِينِ * وَجَعَلَهَا كَلِمَةً بَاقِيَةً فِي عَقِبِهِ لَعَلَّهُمْ يَرْجِعُونَ﴾.\n\nوَقَوْلُهُ: ﴿قُلْ يَا أَهْلَ الْكِتَابِ تَعَالَوْا إِلَى كَلِمَةٍ سَوَاءٍ بَيْنَنَا وَبَيْنَكُمْ أَلَّا نَعْبُدَ إِلَّا اللَّهَ وَلَا نُشْرِكَ بِهِ شَيْئًا وَلَا يَتَّخِذَ بَعْضُنَا بَعْضًا أَرْبَابًا مِنْ دُونِ اللَّهِ فَإِنْ تَوَلَّوْا فَقُولُوا اشْهَدُوا بِأَنَّا مُسْلِمُونَ﴾.",
+          "english": "The evidence for the Testimony (Shahada) is His saying: 'Allah witnesses that there is no deity except Him, and [so do] the angels and those of knowledge - [that He is] maintaining [creation] in justice. There is no deity except Him, the Exalted in Might, the Wise.'\n\nIts meaning is: There is no deity truly worthy of worship except Allah.\n'La ilaha' negates everything worshipped besides Allah.\n'Illa Allah' affirms worship for Allah alone, having no partner in His worship, just as He has no partner in His dominion.\n\nThe interpretation that clarifies it is His saying: 'And when Abraham said to his father and his people, Indeed, I am disassociated from that which you worship, Except for He who created me...' And His saying: 'Say, O People of the Scripture, come to a word that is equitable between us and you - that we will not worship except Allah and not associate anything with Him...'",
+          "videoId": "",
+          "takeaways": [
+            "Meaning of La ilaha illa Allah",
+            "Negation (Nafy) and Affirmation (Ithbat)",
+            "Ibrahim's definition of Tawheed"
+          ]
+        },
+        {
+          "id": "p2-3",
+          "arabic": "وَدَلِيلُ شَهَادَةِ أَنَّ مُحَمَّدًا رَسُولُ اللهِ قَوْلُهُ تَعَالَى: ﴿لَقَدْ جَاءَكُمْ رَسُولٌ مِنْ أَنْفُسِكُمْ عَزِيزٌ عَلَيْهِ مَا عَنِتُّمْ حَرِيصٌ عَلَيْكُمْ بِالْمُؤْمِنِينَ رَءُوفٌ رَحِيمٌ﴾.\n\nوَمَعْنَى شَهَادَةِ أَنَّ مُحَمَّدًا رَسُولُ اللهِ: طَاعَتُهُ فِيمَا أَمَرَ، وَتَصْدِيقُهُ فِيمَا أَخْبَرَ، وَاجْتِنَابُ مَا عَنْهُ نَهَى وَزَجَرَ، وَأَنْ لَا يُعْبَدَ اللهُ إِلَّا بِمَا شَرَعَ.\n\nوَدَلِيلُ الصَّلاةِ وَالزَّكَاةِ وَتَفْسِيرِ التَّوْحِيدِ قَوْلُهُ تَعَالَى: ﴿وَمَا أُمِرُوا إِلَّا لِيَعْبُدُوا اللَّهَ مُخْلِصِينَ لَهُ الدِّينَ حُنَفَاءَ وَيُقِيمُوا الصَّلَاةَ وَيُؤْتُوا الزَّكَاةَ وَذَلِكَ دِينُ الْقَيِّمَةِ﴾.\n\nوَدَلِيلُ الصِّيَامِ قَوْلُهُ تَعَالَى: ﴿يَا أَيُّهَا الَّذِينَ آمَنُوا كُتِبَ عَلَيْكُمُ الصِّيَامُ كَمَا كُتِبَ عَلَى الَّذِينَ مِنْ قَبْلِكُمْ لَعَلَّكُمْ تَتَّقُونَ﴾.\n\nوَدَلِيلُ الْحَجِّ قَوْلُهُ تَعَالَى: ﴿وَلِلَّهِ عَلَى النَّاسِ حِجُّ الْبَيْتِ مَنِ اسْتَطَاعَ إِلَيْهِ سَبِيلًا وَمَنْ كَفَرَ فَإِنَّ اللَّهَ غَنِيٌّ عَنِ الْعَالَمِينَ﴾.",
+          "english": "The evidence for testifying that Muhammad is the Messenger of Allah is His saying: 'There has certainly come to you a Messenger from among yourselves. Grievous to him is what you suffer; [he is] concerned over you and to the believers is kind and merciful.'\n\nThe meaning of testifying that Muhammad is the Messenger of Allah is: Obeying him in what he ordered, believing him in what he informed, avoiding what he forbade and warned against, and that Allah is not worshipped except by what he legislated.\n\nThe evidence for Prayer and Zakat and the explanation of Tawheed is His saying: 'And they were not commanded except to worship Allah, sincere to Him in religion, inclining to truth, and to establish prayer and to give zakah. And that is the correct religion.'\n\nThe evidence for Fasting: 'O you who have believed, decreed upon you is fasting...'\n\nThe evidence for Hajj: 'And due to Allah from the people is a pilgrimage to the House - for whoever is able to find thereto a way...'",
+          "videoId": "",
+          "takeaways": [
+            "4 Conditions of 'Muhammad Rasulullah'",
+            "Allah is only worshipped via the Sunnah",
+            "Evidence for Salah, Zakah, Sawm, Hajj"
+          ]
+        },
+        {
+          "id": "p2-4",
+          "arabic": "الْمَرْتَبَةُ الثَّانِيَةُ: الإِيمَانُ. وَهُوَ بِضْعٌ وَسَبْعُونَ شُعْبَةً، فَأَعْلاهَا قَوْلُ لَا إِلَهَ إِلَّا الله، وَأَدْنَاهَا إِمَاطَةُ الأَذَى عَنِ الطَّرِيقِ، وَالْحَيَاءُ شُعْبَةٌ مِنَ الإِيمَانِ.\n\nوَأَرْكَانُهُ سِتَّةٌ: أَنْ تُؤْمِنَ بِاللهِ، وَمَلائِكَتِهِ، وَكُتُبِهِ، وَرُسُلِهِ، وَالْيَوْمِ الآخِرِ، وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ.\n\nوَالدَّلِيلُ عَلَى هَذِهِ الأَرْكَانِ السِّتَّةِ قَوْلُهُ تَعَالَى: ﴿لَيْسَ الْبِرَّ أَنْ تُوَلُّوا وُجُوهَكُمْ قِبَلَ الْمَشْرِقِ وَالْمَغْرِبِ وَلَكِنَّ الْبِرَّ مَنْ آمَنَ بِاللَّهِ وَالْيَوْمِ الْآخِرِ وَالْمَلَائِكَةِ وَالْكِتَابِ وَالنَّبِيِّينَ﴾.\n\nوَدَلِيلُ الْقَدَرِ قَوْلُهُ تَعَالَى: ﴿إِنَّا كُلَّ شَيْءٍ خَلَقْنَاهُ بِقَدَرٍ﴾.",
+          "english": "The Second Level: Iman (Faith).\nIt has seventy-odd branches. The highest of them is the saying 'La ilaha illa Allah', and the lowest is removing a harmful object from the road. And Haya (modesty) is a branch of Iman.\n\nIts pillars are six: To believe in Allah, His Angels, His Books, His Messengers, the Last Day, and to believe in the Divine Decree (Qadar), the good of it and the bad of it.\n\nThe evidence for these six pillars is His saying: 'Righteousness is not that you turn your faces toward the east or the west, but true righteousness is in one who believes in Allah, the Last Day, the angels, the Book, and the prophets.'\n\nThe evidence for Qadar is His saying: 'Indeed, all things We created with predestination.'",
+          "videoId": "",
+          "takeaways": [
+            "Iman has branches (Speech, Action, Belief)",
+            "The 6 Pillars of Iman",
+            "Haya (Modesty) is part of Faith"
+          ]
+        },
+        {
+          "id": "p2-5",
+          "arabic": "الْمَرْتَبَةُ الثَّالِثَةُ: الإِحْسَانُ. رُكْنٌ وَاحِدٌ، وَهُوَ أَنْ تَعْبُدَ اللهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ.\n\nوَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿إِنَّ اللَّهَ مَعَ الَّذِينَ اتَّقَوْا وَالَّذِينَ هُمْ مُحْسِنُونَ﴾.\n\nوَقَوْلُهُ: ﴿وَتَوَكَّلْ عَلَى الْعَزِيزِ الرَّحِيمِ * الَّذِي يَرَاكَ حِينَ تَقُومُ * وَتَقَلُّبَكَ فِي السَّاجِدِينَ * إِنَّهُ هُوَ السَّمِيعُ الْعَلِيمُ﴾.\n\nوَقَوْلُهُ: ﴿وَمَا تَكُونُ فِي شَأْنٍ وَمَا تَتْلُوا مِنْهُ مِنْ قُرْآنٍ وَلَا تَعْمَلُونَ مِنْ عَمَلٍ إِلَّا كُنَّا عَلَيْكُمْ شُهُودًا إِذْ تُفِيضُونَ فِيهِ﴾.",
+          "english": "The Third Level: Ihsan (Perfection/Excellence).\nIt is one pillar: To worship Allah as if you see Him, and if you do not see Him, then indeed He sees you.\n\nThe evidence is His saying: 'Indeed, Allah is with those who fear Him and those who are doers of good.'\n\nAnd His saying: 'And rely upon the Exalted in Might, the Merciful, Who sees you when you arise, And your movement among those who prostrate. Indeed, He is the Hearing, the Knowing.'\n\nAnd His saying: 'And you are not [engaged] in any matter or recite any of the Qur'an and you do not do any deed except that We are witness over you when you are involved in it.'",
+          "videoId": "",
+          "takeaways": [
+            "Definition of Ihsan",
+            "Muraqabah (Awareness that Allah is watching)",
+            "The highest level of religion"
+          ]
+        },
+        {
+          "id": "p2-6",
+          "arabic": "وَالدَّلِيلُ مِنَ السُّنَّةِ حَدِيثُ جِبْرَائِيلَ الْمَشْهُورُ عَنْ عُمَرَ بْنِ الْخَطَّابِ رَضِيَ اللهُ عَنْهُ قَالَ: بَيْنَمَا نَحْنُ جُلُوسٌ عِنْدَ رَسُولِ اللَّهِ ﷺ إِذْ طَلَعَ عَلَيْنَا رَجُلٌ شَدِيدُ بَيَاضِ الثِّيَابِ، شَدِيدُ سَوَادِ الشَّعْرِ، لَا يُرَى عَلَيْهِ أَثَرُ السَّفَرِ، وَلَا يَعْرِفُهُ مِنَّا أَحَدٌ، حَتَّى جَلَسَ إِلَى النَّبِيِّ ﷺ فَأَسْنَدَ رُكْبَتَيْهِ إِلَى رُكْبَتَيْهِ، وَوَضَعَ كَفَّيْهِ عَلَى فَخِذَيْهِ وَقَالَ: يَا مُحَمَّدُ، أَخْبِرْنِي عَنِ الإِسْلامِ؟\n\nفَقَالَ رَسُولُ اللَّهِ ﷺ: «الإِسْلامُ أَنْ تَشْهَدَ أَنْ لَا إِلَهَ إِلَّا اللهُ، وَأَنَّ مُحَمَّدًا رَسُولُ اللهِ، وَتُقِيمَ الصَّلَاةَ، وَتُؤْتِيَ الزَّكَاةَ، وَتَصُومَ رَمَضَانَ، وَتَحُجَّ الْبَيْتَ إِنِ اسْتَطَعْتَ إِلَيْهِ سَبِيلًا».\n\nقَالَ: صَدَقْتَ. فَعَجِبْنَا لَهُ يَسْأَلُهُ وَيُصَدِّقُهُ.\n\nقَالَ: فَأَخْبِرْنِي عَنِ الإِيمَانِ؟ قَالَ: «أَنْ تُؤْمِنَ بِاللهِ، وَمَلائِكَتِهِ، وَكُتُبِهِ، وَرُسُلِهِ، وَالْيَوْمِ الآخِرِ، وَتُؤْمِنَ بِالْقَدَرِ خَيْرِهِ وَشَرِّهِ». قَالَ: صَدَقْتَ.\n\nقَالَ: فَأَخْبِرْنِي عَنِ الإِحْسَانِ؟ قَالَ: «أَنْ تَعْبُدَ اللهَ كَأَنَّكَ تَرَاهُ، فَإِنْ لَمْ تَكُنْ تَرَاهُ فَإِنَّهُ يَرَاكَ».\n\nقَالَ: فَأَخْبِرْنِي عَنِ السَّاعَةِ؟ قَالَ: «مَا الْمَسْئُولُ عَنْهَا بِأَعْلَمَ مِنَ السَّائِلِ». قَالَ: فَأَخْبِرْنِي عَنْ أَمَارَاتِهَا؟ قَالَ: «أَنْ تَلِدَ الأَمَةُ رَبَّتَهَا، وَأَنْ تَرَى الْحُفَاةَ الْعُرَاةَ الْعَالَةَ رِعَاءَ الشَّاءِ يَتَطَاوَلُونَ فِي الْبُنْيَانِ».\n\nقَالَ: فَمَضَى، فَلَبِثْنَا مَلِيًّا، فَقَالَ: «يَا عُمَرُ، أَتَدْرُونَ مَنِ السَّائِلُ؟». قُلْتُ: اللهُ وَرَسُولُهُ أَعْلَمُ. قَالَ: «هَذَا جِبْرَائِيلُ أَتَاكُمْ يُعَلِّمُكُمْ أَمْرَ دِينِكُمْ».",
+          "english": "The evidence from the Sunnah is the famous Hadith of Jibril narrated by Umar ibn Al-Khattab... (The full narration where Jibril asks about Islam, Iman, Ihsan, and the Hour).\n\nHe said: 'This was Jibril who came to you to teach you your religion.'",
+          "videoId": "",
+          "takeaways": [
+            "Hadith Jibril summarizes the religion",
+            "Manners of seeking knowledge",
+            "Signs of the Hour"
+          ]
         }
       ]
     },
     {
-      "id": "principle-3",
-      "title": "3rd Principle: The Prophet",
+      "id": "p3",
+      "title": "3rd Principle: Knowledge of the Prophet ﷺ",
       "sections": [
         {
           "id": "p3-1",
-          "arabic": "الأَصْلُ الثَّالِثُ : مَعْرِفَةُ نَبِيِّكُمْ مُحَمَّدٍ وَهَوَ مُحَمَّدُ بنُ عَبْدِ اللهِ بْنِ عَبْدِ الْمُطَّلِبِ بْنِ هَاشِمٍ، وَهَاشِمٌ مِنْ قُرَيْشٍ",
-          "english": "The Third Fundamental Principle: Knowledge of your Prophet Muhammad. He is Muhammad bin Abdullah bin Abdul-Muttalib bin Hashim, and Hashim is from Quraysh.",
+          "arabic": "الأَصْلُ الثَّالِثُ: مَعْرِفَةُ نَبِيِّكُمْ مُحَمَّدٍ ﷺ، وَهُوَ مُحَمَّدُ بْنُ عَبْدِ اللهِ بْنِ عَبْدِ الْمُطَّلِبِ بْنِ هَاشِمٍ، وَهَاشِمُ مِنْ قُرَيْشٍ، وَقُرَيْشٌ مِنَ الْعَرَبِ، وَالْعَرَبُ مِنْ ذُرِّيَّةِ إِسْمَاعِيلَ بْنِ إِبْرَاهِيمَ الْخَلِيلِ عَلَيْهِ وَعَلَى نَبِيِّنَا أَفْضَلُ الصَّلاةِ وَالسَّلامِ.\n\nوَلَهُ مِنَ الْعُمُرِ ثَلاثٌ وَسِتُّونَ سَنَةً، مِنْهَا أَرْبَعُونَ قَبْلَ النُّبُوَّةِ، وَثَلاثٌ وَعِشْرُونَ نَبِيًّا وَرَسُولًا. نُبِّئَ بـِ (اقْرَأْ) وَأُرْسِلَ بـِ (الْمُدَّثِّرِ).\n\nوَبَلَدُهُ مَكَّةُ، وَهَاجَرَ إِلَى الْمَدِينَةِ. بَعَثَهُ اللهُ بِالنَّذَارَةِ عَنِ الشِّرْكِ، وَيَدْعُو إِلَى التَّوْحِيدِ.\n\nوَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿يَا أَيُّهَا الْمُدَّثِّرُ * قُمْ فَأَنذِرْ * وَرَبَّكَ فَكَبِّرْ * وَثِيَابَكَ فَطَهِّرْ * وَالرُّجْزَ فَاهْجُرْ * وَلَا تَمْنُنْ تَسْتَكْثِرُ * وَلِرَبِّكَ فَاصْبِرْ﴾.\n\nوَمَعْنَى ﴿قُمْ فَأَنذِرْ﴾: يُنْذِرُ عَنِ الشِّرْكِ وَيَدْعُو إِلَى التَّوْحِيدِ. ﴿وَرَبَّكَ فَكَبِّرْ﴾: أَيْ عَظِّمْهُ بِالتَّوْحِيدِ. ﴿وَثِيَابَكَ فَطَهِّرْ﴾: أَيْ طَهِّرْ أَعْمَالَكَ عَنِ الشِّرْكِ. ﴿وَالرُّجْزَ فَاهْجُرْ﴾: الرُّجْزُ: الأَصْنَامُ، وَهَجْرُهَا: تَرْكُهَا، وَالْبَرَاءَةُ مِنْهَا وَأَهْلِهَا.",
+          "english": "The Third Principle: Knowledge of your Prophet Muhammad ﷺ.\nHe is Muhammad bin Abdullah bin Abdul-Muttalib bin Hashim. Hashim is from Quraysh, Quraysh is from the Arabs, and the Arabs are from the descendants of Ismail bin Ibrahim Al-Khalil (upon him be peace).\n\nHe lived for 63 years: 40 years before prophethood, and 23 years as a Prophet and Messenger. He was made a Prophet with 'Iqra' (Surah Al-Alaq) and a Messenger with 'Al-Muddathir'.\n\nHis city is Makkah, and he migrated (Hijrah) to Madinah. Allah sent him to warn against Shirk and call to Tawheed.\n\nThe evidence is His saying: 'O you who covers himself [with a garment], Arise and warn. And your Lord glorify. And your clothing purify. And uncleanliness avoid...'\n\nMeaning of 'Arise and warn': Warn against Shirk and call to Tawheed.\n'Your Lord glorify': Glorify Him with Tawheed.\n'Your clothing purify': Purify your deeds from Shirk.\n'Uncleanliness avoid': The idols; avoiding them means abandoning them and dissociating from them and their people.",
           "videoId": "",
-          "takeaways": ["Lineage of the Prophet", "His noble status"]
+          "takeaways": [
+            "Lineage of the Prophet ﷺ",
+            "Difference between Nabi (Iqra) and Rasool (Muddathir)",
+            "Core Mission: Warning against Shirk"
+          ]
+        },
+        {
+          "id": "p3-2",
+          "arabic": "أَخَذَ عَلَى هَذَا عَشْرَ سِنِينَ يَدْعُو إِلَى التَّوْحِيدِ، وَبَعْدَ الْعَشْرِ عُرِجَ بِهِ إِلَى السَّمَاءِ، وَفُرِضَتْ عَلَيْهِ الصَّلَوَاتُ الْخَمْسُ، وَصَلَّى فِي مَكَّةَ ثَلاثَ سِنِينَ، وَبَعْدَهَا أُمِرَ بِالْهِجْرَةِ إِلَى الْمَدِينَةِ.\n\nوَالْهِجْرَةُ: الانْتِقَالُ مِنْ بَلَدِ الشِّرْكِ إِلَى بَلَدِ الإِسْلامِ. وَالْهِجْرَةُ فَرِيضَةٌ عَلَى هَذِهِ الأُمَّةِ مِنْ بَلَدِ الشِّرْكِ إِلَى بَلَدِ الإِسْلامِ، وَهِيَ بَاقِيةٌ إِلَى أَنْ تَقُومَ السَّاعَةُ.\n\nوَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿إِنَّ الَّذِينَ تَوَفَّاهُمُ الْمَلَائِكَةُ ظَالِمِي أَنْفُسِهِمْ قَالُوا فِيمَ كُنْتُمْ قَالُوا كُنَّا مُسْتَضْعَفِينَ فِي الْأَرْضِ قَالُوا أَلَمْ تَكُنْ أَرْضُ اللَّهِ وَاسِعَةً فَتُهَاجِرُوا فِيهَا فَأُولَئِكَ مَأْوَاهُمْ جَهَنَّمُ وَسَاءَتْ مَصِيرًا * إِلَّا الْمُسْتَضْعَفِينَ مِنَ الرِّجَالِ وَالنِّسَاءِ وَالْوِلْدَانِ لَا يَسْتَطِيعُونَ حِيلَةً وَلَا يَهْتَدُونَ سَبِيلًا * فَأُولَئِكَ عَسَى اللَّهُ أَنْ يَعْفُوَ عَنْهُمْ وَكَانَ اللَّهُ عَفُوًّا غَفُورًا﴾.\n\nوَقَوْلُهُ تَعَالَى: ﴿يَا عِبَادِيَ الَّذِينَ آمَنُوا إِنَّ أَرْضِي وَاسِعَةٌ فَإِيَّايَ فَاعْبُدُونِ﴾.",
+          "english": "He spent ten years calling to Tawheed. After the ten years, he was ascended to the heaven (Miraj) and the Five Daily Prayers were mandated. He prayed in Makkah for three years, and then he was commanded to Migrate (Hijrah) to Madinah.\n\nHijrah is: Moving from the land of Shirk to the land of Islam. Hijrah is obligatory upon this Ummah from the land of Shirk to the land of Islam, and it remains until the Hour is established.\n\nThe evidence is His saying: 'Indeed, those whom the angels take [in death] while they are wronging themselves... [the angels] will say, 'Was not the earth of Allah spacious [enough] for you to emigrate therein?'...'\n\nAnd His saying: 'O My servants who have believed, indeed My earth is spacious, so worship only Me.'",
+          "videoId": "",
+          "takeaways": [
+            "The Makkan Period (10 years of Tawheed)",
+            "Definition and Ruling of Hijrah",
+            "Hijrah remains until the Last Day"
+          ]
+        },
+        {
+          "id": "p3-3",
+          "arabic": "فَلَمَّا اسْتَقَرَّ فِي الْمَدِينَةِ أُمِرَ بِبَقِيَّةِ شَرَائِعِ الإِسْلَامِ، مِثْلِ: الزَّكَاةِ، وَالصَّوْمِ، وَالْحَجِّ، وَالْجِهَادِ، وَالأَذَانِ، وَالأَمْرِ بِالْمَعْرُوفِ وَالنَّهْيِ عَنِ الْمُنْكَرِ، وَغَيْرِ ذَلِكَ مِنْ شَرَائِعِ الإِسْلَامِ. أَخَذَ عَلَى هَذَا عَشْرَ سِنِينَ، وَبَعْدَهَا تُوُفِّيَ صَلَوَاتُ اللهِ وَسَلامُهُ عَلَيْهِ، وَدِينُهُ بَاقٍ.\n\nوَهَذَا دِينُهُ، لَا خَيْرَ إِلَّا دَلَّ الأُمَّةَ عَلَيْهِ، وَلا شَرَّ إِلَّا حَذَّرَهَا مِنْهُ. وَالْخَيْرُ الَّذِي دَلَّ عَلَيْهِ التَّوْحِيدُ وَجَمِيعُ مَا يُحِبُّهُ اللهُ وَيَرْضَاهُ، وَالشَّرُّ الَّذِي حَذَّرَ مِنْهُ الشِّرْكُ وَجَمِيعُ مَا يَكْرَهُهُ اللهُ وَيَأْبَاهُ.\n\nبَعَثَهُ اللهُ إِلَى النَّاسِ كَافَّةً، وَافْتَرَضَ طَاعَتَهُ عَلَى جَمِيعِ الثَّقَلَيْنِ الْجِنِّ وَالإِنْسِ. وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿قُلْ يَا أَيُّهَا النَّاسُ إِنِّي رَسُولُ اللَّهِ إِلَيْكُمْ جَمِيعًا﴾.\n\nوَأَكْمَلَ اللهُ بِهِ الدِّينَ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿الْيَوْمَ أَكْمَلْتُ لَكُمْ دِينَكُمْ وَأَتْمَمْتُ عَلَيْكُمْ نِعْمَتِي وَرَضِيتُ لَكُمُ الْإِسْلَامَ دِينًا﴾.\n\nوَالدَّلِيلُ عَلَى مَوْتِهِ ﷺ قَوْلُهُ تَعَالَى: ﴿إِنَّكَ مَيِّتٌ وَإِنَّهُمْ مَيِّتُونَ * ثُمَّ إِنَّكُمْ يَوْمَ الْقِيَامَةِ عِنْدَ رَبِّكُمْ تَخْتَصِمُونَ﴾.",
+          "english": "When he settled in Madinah, he was commanded with the rest of the laws of Islam, such as Zakah, Fasting, Hajj, Jihad, the Adhan, Enjoining Good and Forbidding Evil, and other laws of Islam. He spent ten years on this, and then he passed away (peace and blessings be upon him), but his religion remains.\n\nThis is his religion: There is no good except that he directed the Ummah to it, and no evil except that he warned them against it. The good he directed to is Tawheed and everything Allah loves. The evil he warned against is Shirk and everything Allah hates.\n\nAllah sent him to all of mankind, and mandated obedience to him upon all of the Jinn and Mankind. Evidence: 'Say, O mankind, indeed I am the Messenger of Allah to you all.'\n\nAllah perfected the religion through him. Evidence: 'This day I have perfected for you your religion and completed My favor upon you and have approved for you Islam as religion.'\n\nThe evidence for his death (peace be upon him) is His saying: 'Indeed, you are to die, and indeed, they are to die. Then indeed you, on the Day of Resurrection, before your Lord, will dispute.'",
+          "videoId": "",
+          "takeaways": [
+            "The Madinan Period (Laws & Action)",
+            "The Prophet delivered the complete message",
+            "Universal Message to Jinn and Mankind",
+            "Perfection of the Religion",
+            "Death of the Prophet ﷺ is a reality"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "conclusion",
+      "title": "Conclusion: Resurrection & Taghut",
+      "sections": [
+        {
+          "id": "c-1",
+          "arabic": "وَالنَّاسُ إِذَا مَاتُوا يُبْعَثُونَ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿مِنْهَا خَلَقْنَاكُمْ وَفِيهَا نُعِيدُكُمْ وَمِنْهَا نُخْرِجُكُمْ تَارَةً أُخْرَى﴾. وَقَوْلُهُ تَعَالَى: ﴿وَاللَّهُ أَنْبَتَكُمْ مِنَ الْأَرْضِ نَبَاتًا * ثُمَّ يُعِيدُكُمْ فِيهَا وَيُخْرِجُكُمْ إِخْرَاجًا﴾.\n\nوَبَعْدَ الْبَعْثِ مُحَاسَبُونَ وَمَجْزِيُّونَ بِأَعْمَالِهِمْ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿لِيَجْزِيَ الَّذِينَ أَسَاءُوا بِمَا عَمِلُوا وَيَجْزِيَ الَّذِينَ أَحْسَنُوا بِالْحُسْنَى﴾.\n\nوَمَنْ كَذَّبَ بِالْبَعْثِ كَفَرَ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿زَعَمَ الَّذِينَ كَفَرُوا أَنْ لَنْ يُبْعَثُوا قُلْ بَلَى وَرَبِّي لَتُبْعَثُنَّ ثُمَّ لَتُنَبَّؤُنَّ بِمَا عَمِلْتُمْ وَذَلِكَ عَلَى اللَّهِ يَسِيرٌ﴾.\n\nوَأَرْسَلَ اللهُ جَمِيعَ الرُّسُلِ مُبْشِّرِينَ وَمُنْذِرِينَ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿رُسُلًا مُبَشِّرِينَ وَمُنْذِرِينَ لِئَلَّا يَكُونَ لِلنَّاسِ عَلَى اللَّهِ حُجَّةٌ بَعْدَ الرُّسُلِ﴾.",
+          "english": "And people, when they die, will be resurrected. The evidence is His saying: 'From the earth We created you, and into it We will return you, and from it We will extract you another time.' And His saying: 'And Allah has produced you from the earth... Then He will return you into it and extract you.'\n\nAfter the Resurrection, they will be held accountable and recompensed for their deeds. Evidence: 'That He may recompense those who misbehaved with what they did and recompense those who did good with the best [reward].'\n\nWhoever denies the Resurrection has disbelieved. Evidence: 'Those who disbelieve have claimed that they will never be resurrected. Say, Yes, by my Lord, you will surely be resurrected; then you will surely be informed of what you did. And that, for Allah, is easy.'\n\nAllah sent all Messengers as bringers of good tidings and warners. Evidence: '[We sent] messengers as bringers of good tidings and warners so that mankind will have no argument against Allah after the messengers.'",
+          "videoId": "",
+          "takeaways": [
+            "Reality of Al-Ba'th (Resurrection)",
+            "Accountability (Hisab) after death",
+            "Denying Resurrection is Kufr",
+            "Purpose of Messengers"
+          ]
+        },
+        {
+          "id": "c-2",
+          "arabic": "وَأَوَّلُهُمْ نُوحٌ عَلَيْهِ السَّلامُ، وَآخِرُهُمْ مُحَمَّدٌ ﷺ، وَهُوَ خَاتَمُ النَّبِيِّينَ لَا نَبِيَّ بَعْدَهُ.\n\nوَكُلُّ أُمَّةٍ بَعَثَ اللهُ إِلَيْهَا رَسُولًا مِنْ نُوحٍ إِلَى مُحَمَّدٍ يَأْمُرُهُمْ بِعِبَادَةِ اللهِ وَحْدَهُ، وَيَنْهَاهُمْ عَنْ عِبَادَةِ الطَّاغُوتِ، وَالدَّلِيلُ قَوْلُهُ تَعَالَى: ﴿وَلَقَدْ بَعَثْنَا فِي كُلِّ أُمَّةٍ رَسُولًا أَنِ اعْبُدُوا اللَّهَ وَاجْتَنِبُوا الطَّاغُوتَ﴾.\n\nوَافْتَرَضَ اللهُ عَلَى جَمِيعِ الْعِبَادِ الكُفْرَ بِالطَّاغُوتِ وَالإِيمَانَ بِاللهِ. قَالَ ابْنُ الْقَيِّمِ -رَحِمَهُ اللهُ تَعَالَى-: (الطَّاغُوتُ مَا تَجَاوَزَ بِهِ الْعَبْدُ حَدَّهُ مِنْ مَعْبُودٍ أَوْ مَتْبُوعٍ أَوْ مُطَاعٍ).\n\nوَالطَّوَاغِيتُ كَثِيرَةٌ، وَرُؤُوسُهُمْ خَمْسَةٌ: إِبْلِيسُ لَعَنَهُ اللهُ، وَمَنْ عُبِدَ وَهُوَ رَاضٍ، وَمَنْ دَعَا النَّاسَ إِلَى عِبَادَةِ نَفْسِهِ، وَمَنْ ادَّعَى شَيْئاً مِنْ عِلْمِ الْغَيْبِ، وَمَنْ حَكَمَ بِغَيْرِ مَا أَنْزَلَ اللهُ.\n\nوَهَذَا هُوَ مَعْنَى (لَا إِلَهَ إِلَّا الله). وَفِي الْحَدِيثِ: «رَأْسُ الأَمْرِ الإِسْلامُ، وَعَمُودُهُ الصَّلاةُ، وَذِرْوَةُ سَنَامِهِ الْجِهَادُ فِي سَبِيلِ اللهِ». وَاللهُ أَعْلَمُ.",
+          "english": "The first of them was Nuh, and the last was Muhammad ﷺ. Every nation was sent a Messenger commanding them to worship Allah alone and forbidding them from Taghut. Evidence: 'And We certainly sent into every nation a messenger, [saying], Worship Allah and avoid Taghut.'\n\nAllah obligated all servants to reject Taghut and believe in Allah. Ibn Al-Qayyim said: 'Taghut is anything by which the servant exceeds his limit, whether it be someone worshipped, followed, or obeyed.'\n\nThe Heads of Taghut are five: 1. Iblis. 2. Whoever is worshipped and is pleased with it. 3. Whoever calls people to worship himself. 4. Whoever claims knowledge of the Unseen. 5. Whoever judges by other than what Allah has revealed.\n\nThis is the reality of 'La ilaha illa Allah'. In the Hadith: 'The head of the matter is Islam, its pillar is the Prayer, and its peak is Jihad in the path of Allah.' And Allah knows best.",
+          "videoId": "",
+          "takeaways": [
+            "Definition of Taghut (Ibn Al-Qayyim)",
+            "The 5 Heads of Taghut",
+            "Every Messenger called to: Worship Allah + Shun Taghut"
+          ]
         }
       ]
     }

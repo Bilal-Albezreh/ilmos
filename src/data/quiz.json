@@ -1,0 +1,57 @@
+{
+  "title": "Al-Usool Al-Thalatha Mastery",
+  "quizzes": [
+    {
+      "id": "q1",
+      "chapterId": "intro-1",
+      "question": "According to Surah Al-Asr, what is the FIRST condition for salvation?",
+      "options": [
+        "Acting upon knowledge",
+        "Having Faith (Iman) & Knowledge",
+        "Calling others to the truth",
+        "Patience in adversity"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Iman (which requires Knowledge) is the first condition mentioned: 'Except those who have believed...'"
+    },
+    {
+      "id": "q2",
+      "chapterId": "intro-1",
+      "question": "Why did Imam Al-Bukhari title his chapter 'Knowledge before Speech and Action'?",
+      "options": [
+        "Because speech is easier than action",
+        "Because knowledge validates the intention and correctness of the deed",
+        "Because scholars are more important than workers",
+        "Because it is the longest chapter in his book"
+      ],
+      "correctAnswer": 1,
+      "explanation": "He cited the verse 'So Know that there is no deity except Allah, and ask forgiveness...', showing that Knowledge is the prerequisite for the action (seeking forgiveness)."
+    },
+    {
+      "id": "q3",
+      "chapterId": "intro-2",
+      "question": "What is the definition of 'Al-Hanafiyyah' mentioned in the text?",
+      "options": [
+        "The school of Imam Abu Hanifah",
+        "General monotheism without specific laws",
+        "The religion of Ibrahim: Worshipping Allah alone, sincere to Him",
+        "Performing Hajj and Umrah annually"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The text states: 'Al-Hanafiyyah, the religion of Ibrahim, is to worship Allah alone, making the religion sincere for Him.'"
+    },
+    {
+      "id": "q4",
+      "chapterId": "intro-2",
+      "question": "Which of the following is NOT one of the Three Fundamental Principles?",
+      "options": [
+        "Knowledge of your Lord",
+        "Knowledge of your Prophet",
+        "Knowledge of the Quran's recitation rules",
+        "Knowledge of your Religion"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The Three Principles are: Knowing Allah, Knowing His Prophet, and Knowing the Religion of Islam."
+    }
+  ]
+}
