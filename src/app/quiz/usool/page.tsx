@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, XCircle, AlertCircle, RefreshCw, Trophy, BookOpen, Loader2 } from "lucide-react";
-import quizData from "../../../data/quiz.json"; // Note the extra ../
+import quizData from "../../../data/quiz.json"; 
 import { supabase } from "../../../lib/supabaseClient";
 
 export default function ExamPage() {
@@ -50,39 +50,33 @@ export default function ExamPage() {
     }
   };
 
-  // LOGIC: Save to Cloud
+  // LOGIC: Save to Cloud (SECURE VERSION)
   const finishExam = async () => {
     setShowScore(true);
     setIsSaving(true);
 
-    // 1. Get User
-    const localSession = localStorage.getItem("currentUser");
-    if (!localSession) {
-      setSaveMessage("Playing as Guest (Score not saved)");
-      setIsSaving(false);
-      return;
-    }
-    const userId = JSON.parse(localSession).id;
-
-    // 2. Final Score Calculation (Add 1 if the last answer was correct, score state updates slightly late)
-    // Actually, state 'score' is accurate here because we updated it in handleAnswerOptionClick previously
-    // But wait, the update is async. Let's rely on the current accumulated score.
-    // Safety check: The 'score' variable holds the correct value up to the previous question.
-    // If the LAST question was correct, we need to make sure it's counted.
-    // Since handleAnswerOptionClick updates state, and handleNextQuestion runs after render...
-    // React batching might be tricky. 
-    // *Correction*: We can trust 'score' because 'handleNextQuestion' is called by a button click *after* the answer click logic has finished.
-    
-    const finalScore = score; 
-    const passed = finalScore >= (quizData.questions.length * 0.7); // 70% to pass
-
-    // 3. Write to Supabase
     try {
-      const { error } = await supabase
+      // 1. Get the Real Authenticated User from Supabase
+      // (This ensures we have a valid session token for RLS policies)
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      
+      if (authError || !user) {
+        // Fallback for guest users
+        setSaveMessage("Playing as Guest (Score not saved)");
+        setIsSaving(false);
+        return;
+      }
+
+      // 2. Prepare Data
+      const finalScore = score; 
+      const passed = finalScore >= (quizData.questions.length * 0.7);
+
+      // 3. Write to Supabase using the Real User ID
+      const { error: insertError } = await supabase
         .from('exam_results')
         .insert([
           {
-            user_id: userId,
+            user_id: user.id, // Secure ID from the auth session
             exam_id: 'usool-final',
             score: finalScore,
             max_score: quizData.questions.length,
@@ -90,11 +84,13 @@ export default function ExamPage() {
           }
         ]);
 
-      if (error) throw error;
+      if (insertError) throw insertError;
+      
       setSaveMessage("Result saved to cloud successfully!");
-    } catch (err) {
-      console.error(err);
-      setSaveMessage("Error saving result.");
+
+    } catch (err: any) {
+      console.error("Save failed:", err);
+      setSaveMessage(`Error: ${err.message || "Could not save"}`);
     } finally {
       setIsSaving(false);
     }
