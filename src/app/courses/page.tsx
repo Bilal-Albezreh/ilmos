@@ -4,40 +4,53 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
   BookOpen, User, Star, Clock, Trophy, ArrowRight, 
-  Lock, CheckCircle2, BarChart3, GraduationCap 
+  Lock, CheckCircle2, GraduationCap 
 } from "lucide-react";
 import bookData from "../../data/usool.json";
-import { supabase } from "../../lib/supabaseClient"; // 1. Import Supabase
+import { supabase } from "../../lib/supabaseClient";
 
 export default function CoursesDashboard() {
-  const [user, setUser] = useState({ name: "Guest Student", id: "guest", email: "" });
+  const [user, setUser] = useState({ name: "Guest Student", email: "" });
   const [stats, setStats] = useState({ progress: 0, completed: 0, avgScore: 0 });
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadDashboardData = async () => {
-      // 1. Load User Session
-      const localSession = localStorage.getItem("currentUser");
-      if (!localSession) return;
+      setLoading(true);
       
-      const u = JSON.parse(localSession);
-      setUser(u);
+      // 1. GET REAL USER (Source of Truth)
+      const { data: { user: authUser }, error: authError } = await supabase.auth.getUser();
+
+      if (authError || !authUser) {
+        setLoading(false);
+        return; // Stay as guest
+      }
+
+      // 2. GET PROFILE NAME (Optional, fallback to email)
+      // We try to get the name from the 'profiles' table, or just use email
+      const { data: profile } = await supabase
+        .from('profiles')
+        .select('full_name')
+        .eq('id', authUser.id)
+        .single();
       
-      // 2. Load Reading Progress (from Supabase, fallback to local)
+      const displayName = profile?.full_name || authUser.email?.split('@')[0] || "Student";
+      setUser({ name: displayName, email: authUser.email || "" });
+
+      // 3. GET CLOUD PROGRESS
       let percent = 0;
-      
-      // Try fetching fresh progress from Cloud first
       const { data: cloudProgress } = await supabase
         .from('progress')
         .select('completed_percent')
-        .eq('user_id', u.id)
+        .eq('user_id', authUser.id)
         .eq('course_id', 'usool')
         .single();
 
       if (cloudProgress) {
         percent = cloudProgress.completed_percent;
       } else {
-        // Fallback to local if cloud fails or empty
-        const savedProgress = localStorage.getItem(`usool-progress-${u.id}`);
+        // Fallback: Check local storage only if cloud is empty (Optimistic UI)
+        const savedProgress = localStorage.getItem(`usool-progress-${authUser.id}`);
         if (savedProgress) {
            const { chapter, section } = JSON.parse(savedProgress);
            let total = 0;
@@ -49,22 +62,19 @@ export default function CoursesDashboard() {
         }
       }
 
-      // 3. Load Exam Results (REAL DATA)
-      const { data: examData } = await supabase
+      // 4. GET REAL EXAM RESULTS
+      const { data: examData, error: examError } = await supabase
         .from('exam_results')
         .select('score, max_score')
-        .eq('user_id', u.id);
+        .eq('user_id', authUser.id);
 
       let calculatedAvg = 0;
-      let examsTaken = 0;
-
+      // We only care if they have actually taken exams
       if (examData && examData.length > 0) {
-        // Calculate average of all exams taken
         const totalPercentage = examData.reduce((acc, curr) => {
            return acc + ((curr.score / curr.max_score) * 100);
         }, 0);
         calculatedAvg = Math.round(totalPercentage / examData.length);
-        examsTaken = examData.length;
       }
 
       setStats({
@@ -72,6 +82,8 @@ export default function CoursesDashboard() {
         completed: percent >= 100 ? 1 : 0,
         avgScore: calculatedAvg
       });
+      
+      setLoading(false);
     };
 
     loadDashboardData();
@@ -89,7 +101,7 @@ export default function CoursesDashboard() {
           </Link>
           <div className="flex items-center gap-4">
              <div className="flex items-center gap-2 text-sm font-medium text-emerald-800 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
-                <User size={14} /> {user.name}
+                <User size={14} /> {loading ? "Loading..." : user.name}
              </div>
           </div>
         </div>
