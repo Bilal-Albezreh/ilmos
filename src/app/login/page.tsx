@@ -1,41 +1,90 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation"; // Import Router
+import { useRouter } from "next/navigation"; 
 import Link from "next/link";
-import { BookOpen, ArrowLeft, Mail, Lock, User, ArrowRight, Loader2 } from "lucide-react";
+import { BookOpen, ArrowLeft, Mail, Lock, User, ArrowRight, Loader2, AlertCircle } from "lucide-react";
+import { supabase } from "../../lib/supabaseClient"; // Import the connection we made
 
 export default function LoginPage() {
-  const router = useRouter(); // Hook to move pages
+  const router = useRouter();
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   
   // Form State
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setErrorMsg(null);
 
-    // SIMULATE BACKEND AUTHENTICATION
-    setTimeout(() => {
-      // 1. Generate a fake User ID based on email
-      const userId = email.split('@')[0] || "guest";
-      const userName = name || userId;
+    try {
+      if (isLogin) {
+        // --- LOGIC: SIGN IN ---
+        const { data, error } = await supabase.auth.signInWithPassword({
+          email,
+          password,
+        });
 
-      // 2. Save "Session" to Local Storage (In a real app, this would be a secure Cookie)
-      localStorage.setItem("currentUser", JSON.stringify({ 
-        id: userId, 
-        name: userName,
-        email: email 
-      }));
+        if (error) throw error;
+        
+        // Success! Save session locally so our other pages know we are logged in
+        // (Supabase handles cookies automatically, but we use this for your custom progress bars)
+        localStorage.setItem("currentUser", JSON.stringify({ 
+          id: data.user.id, 
+          email: data.user.email,
+          // We fetch the name later or just use the email part for now
+          name: data.user.email?.split('@')[0] 
+        }));
 
+        router.push("/");
+
+      } else {
+        // --- LOGIC: SIGN UP ---
+        // 1. Create the Auth User
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+        });
+
+        if (error) throw error;
+        if (!data.user) throw new Error("No user created");
+
+        // 2. Create the Profile Entry (in our public.profiles table)
+        const { error: profileError } = await supabase
+          .from('profiles')
+          .insert([
+            { 
+              id: data.user.id, 
+              email: email, 
+              full_name: name 
+            }
+          ]);
+
+        if (profileError) {
+           console.error("Profile creation failed:", profileError);
+           // We don't stop the user here, but we log it.
+        }
+
+        // 3. Save Session & Redirect
+        localStorage.setItem("currentUser", JSON.stringify({ 
+          id: data.user.id, 
+          email: email, 
+          name: name 
+        }));
+
+        router.push("/");
+      }
+    } catch (error: any) {
+      console.error(error);
+      setErrorMsg(error.message || "An unexpected error occurred");
+    } finally {
       setIsLoading(false);
-      
-      // 3. Redirect to Home
-      router.push("/");
-    }, 1500);
+    }
   };
 
   return (
@@ -56,9 +105,26 @@ export default function LoginPage() {
           </div>
 
           <div className="flex p-1 bg-slate-100/80 rounded-xl mb-8 border border-slate-200">
-            <button onClick={() => setIsLogin(true)} className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all duration-200 ${isLogin ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>Sign In</button>
-            <button onClick={() => setIsLogin(false)} className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all duration-200 ${!isLogin ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}>Sign Up</button>
+            <button 
+              onClick={() => { setIsLogin(true); setErrorMsg(null); }} 
+              className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all duration-200 ${isLogin ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+            >
+              Sign In
+            </button>
+            <button 
+              onClick={() => { setIsLogin(false); setErrorMsg(null); }} 
+              className={`flex-1 py-2 text-sm font-bold rounded-lg transition-all duration-200 ${!isLogin ? 'bg-white text-emerald-900 shadow-sm' : 'text-slate-400 hover:text-slate-600'}`}
+            >
+              Sign Up
+            </button>
           </div>
+
+          {errorMsg && (
+            <div className="mb-6 p-4 bg-red-50 border border-red-100 rounded-xl flex items-start gap-3 text-red-700 text-sm animate-in fade-in slide-in-from-top-2">
+               <AlertCircle size={18} className="shrink-0 mt-0.5" />
+               <span>{errorMsg}</span>
+            </div>
+          )}
 
           <form onSubmit={handleSubmit} className="space-y-4">
             {!isLogin && (
@@ -81,7 +147,7 @@ export default function LoginPage() {
               <label className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-1">Password</label>
               <div className="relative group">
                 <Lock className="absolute left-3 top-3 text-slate-400 group-focus-within:text-emerald-600 transition-colors" size={18} />
-                <input required type="password" placeholder="••••••••" className="w-full bg-white border border-slate-200 rounded-xl py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all shadow-sm" />
+                <input required type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="••••••••" minLength={6} className="w-full bg-white border border-slate-200 rounded-xl py-2.5 pl-10 pr-4 text-sm focus:outline-none focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all shadow-sm" />
               </div>
             </div>
             <button type="submit" disabled={isLoading} className="w-full bg-emerald-900 text-white font-bold py-3 rounded-xl shadow-lg shadow-emerald-900/20 hover:bg-emerald-800 hover:scale-[1.02] transition-all flex items-center justify-center gap-2 mt-2 disabled:opacity-70">

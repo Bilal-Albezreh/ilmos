@@ -7,6 +7,7 @@ import {
   Sparkles, BookMarked, Send, User, Bot, FileText, Download, X, Lightbulb, GraduationCap 
 } from "lucide-react";
 import bookData from "../../data/usool.json"; 
+import { supabase } from "../../lib/supabaseClient"; // 1. Import Supabase
 
 type Section = {
   id: string;
@@ -38,6 +39,10 @@ export default function ReaderPage() {
   const [isLoading, setIsLoading] = useState(false);
   
   const chatEndRef = useRef<HTMLDivElement>(null);
+  
+  // USER STATE
+  const [userId, setUserId] = useState<string | null>(null);
+
   useEffect(() => {
     chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
@@ -45,36 +50,80 @@ export default function ReaderPage() {
   const currentChapter = bookData.chapters[currentChapterIndex];
   const section: Section = currentChapter.sections[currentSectionIndex];
 
-  // --- STORAGE LOGIC (Multi-User Support) ---
+  // --- CLOUD SYNC LOGIC (The "Real" Engineering) ---
 
-  // 1. Load Progress on Start
+  // 1. LOAD: Fetch progress from Supabase on startup
   useEffect(() => {
-    const userSession = localStorage.getItem("currentUser");
-    const userId = userSession ? JSON.parse(userSession).id : "guest";
-    const storageKey = `usool-progress-${userId}`; // Unique key per user
+    const fetchProgress = async () => {
+      // Get current user ID from local session (for speed) or Supabase auth
+      const localSession = localStorage.getItem("currentUser");
+      const uid = localSession ? JSON.parse(localSession).id : null;
+      setUserId(uid);
 
-    const saved = localStorage.getItem(storageKey);
-    if (saved) {
-      const { chapter, section } = JSON.parse(saved);
-      // Validate bounds
-      if (chapter < bookData.chapters.length) {
-        setCurrentChapterIndex(chapter);
-        setCurrentSectionIndex(section);
+      if (uid) {
+        // Query the Database
+        const { data, error } = await supabase
+          .from('progress')
+          .select('*')
+          .eq('user_id', uid)
+          .eq('course_id', 'usool')
+          .single();
+
+        if (data && !error) {
+          // If data exists in cloud, sync the UI to it
+          if (data.current_chapter < bookData.chapters.length) {
+            setCurrentChapterIndex(data.current_chapter);
+            setCurrentSectionIndex(data.current_section);
+          }
+        }
       }
-    }
+    };
+
+    fetchProgress();
   }, []);
 
-  // 2. Save Progress on Change
+  // 2. SAVE: Write to Supabase whenever the page changes
   useEffect(() => {
-    const userSession = localStorage.getItem("currentUser");
-    const userId = userSession ? JSON.parse(userSession).id : "guest";
-    const storageKey = `usool-progress-${userId}`;
+    const saveProgress = async () => {
+      if (!userId) return; // Don't save for guests
 
-    localStorage.setItem(storageKey, JSON.stringify({ 
-      chapter: currentChapterIndex, 
-      section: currentSectionIndex 
-    }));
-  }, [currentChapterIndex, currentSectionIndex]);
+      // Calculate percentage
+      let totalSections = 0;
+      bookData.chapters.forEach(c => totalSections += c.sections.length);
+
+      let completedCount = 0;
+      for (let i = 0; i < currentChapterIndex; i++) {
+        completedCount += bookData.chapters[i].sections.length;
+      }
+      completedCount += currentSectionIndex + 1;
+      
+      const percent = Math.round((completedCount / totalSections) * 100);
+
+      // UPSERT: Update if exists, Insert if new
+      await supabase
+        .from('progress')
+        .upsert({
+            user_id: userId,
+            course_id: 'usool',
+            current_chapter: currentChapterIndex,
+            current_section: currentSectionIndex,
+            completed_percent: percent,
+            last_updated: new Date().toISOString()
+        }, { onConflict: 'user_id, course_id' });
+        
+      // Also update LocalStorage (for offline speed/optimistic UI)
+      localStorage.setItem(`usool-progress-${userId}`, JSON.stringify({
+        chapter: currentChapterIndex, 
+        section: currentSectionIndex 
+      }));
+    };
+
+    // Debounce: Wait 1s before saving to prevent spamming the DB if user clicks fast
+    const timeoutId = setTimeout(saveProgress, 1000);
+    return () => clearTimeout(timeoutId);
+
+  }, [currentChapterIndex, currentSectionIndex, userId]);
+
 
   // --- NAVIGATION LOGIC ---
   const handleNext = () => {
@@ -141,6 +190,14 @@ export default function ReaderPage() {
         </div>
         
         <div className="flex items-center gap-3">
+            {/* SAVING INDICATOR */}
+            {userId && (
+               <div className="hidden md:flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase tracking-widest rounded-full border border-emerald-100">
+                 <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                 Cloud Sync Active
+               </div>
+            )}
+
             {/* EXAM BUTTON */}
             <Link 
               href="/quiz" 

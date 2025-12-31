@@ -2,40 +2,54 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { BookOpen, Sparkles, Library, GraduationCap, Lock, Star, Moon, PlayCircle, Clock, User } from "lucide-react";
+import { BookOpen, Sparkles, Library, GraduationCap, Lock, Star, Moon, PlayCircle, Clock, User, LogOut } from "lucide-react";
 import bookData from "../data/usool.json";
 
 export default function HomePage() {
   const [progress, setProgress] = useState(0);
+  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
 
-  // --- PROGRESS CALCULATION LOGIC (Multi-User) ---
+  // --- INITIALIZATION LOGIC ---
   useEffect(() => {
     // 1. Check who is logged in
     const userSession = localStorage.getItem("currentUser");
-    const userId = userSession ? JSON.parse(userSession).id : "guest";
-
-    // 2. Load THEIR specific progress
-    const saved = localStorage.getItem(`usool-progress-${userId}`);
     
-    if (saved) {
-      const { chapter, section } = JSON.parse(saved);
+    if (userSession) {
+      const userData = JSON.parse(userSession);
+      setUser(userData); // Save user to state
+      const userId = userData.id;
+
+      // 2. Load THEIR specific progress
+      const saved = localStorage.getItem(`usool-progress-${userId}`);
       
-      // Calculate Total Sections in Book
-      let totalSections = 0;
-      bookData.chapters.forEach(c => totalSections += c.sections.length);
+      if (saved) {
+        const { chapter, section } = JSON.parse(saved);
+        
+        // Calculate Total Sections in Book
+        let totalSections = 0;
+        bookData.chapters.forEach(c => totalSections += c.sections.length);
 
-      // Calculate Completed Sections
-      let completedSections = 0;
-      for (let i = 0; i < chapter; i++) {
-        completedSections += bookData.chapters[i].sections.length;
+        // Calculate Completed Sections
+        let completedSections = 0;
+        for (let i = 0; i < chapter; i++) {
+          completedSections += bookData.chapters[i].sections.length;
+        }
+        completedSections += section + 1;
+
+        // Set Percentage
+        const percent = Math.round((completedSections / totalSections) * 100);
+        setProgress(percent);
       }
-      completedSections += section + 1;
-
-      // Set Percentage
-      const percent = Math.round((completedSections / totalSections) * 100);
-      setProgress(percent);
     }
   }, []);
+
+  // Logout Handler
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    setUser(null);
+    setProgress(0);
+    window.location.reload(); // Refresh to reset state cleanly
+  };
 
   return (
     <div className="min-h-screen bg-andalusian animate-pattern flex flex-col font-sans text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
@@ -53,34 +67,53 @@ export default function HomePage() {
           </div>
 
           <div className="flex items-center gap-6">
-            <Link href="/courses/usool" className="hidden md:block text-sm font-medium text-emerald-800 hover:text-emerald-600 transition">Courses</Link>
+            <Link href="/courses" className="hidden md:block text-sm font-medium text-emerald-800 hover:text-emerald-600 transition">Courses</Link>
             <Link href="/quiz" className="hidden md:block text-sm font-medium text-emerald-800 hover:text-emerald-600 transition">Quizzes</Link>
-            <Link 
-              href="/login" 
-              className="group flex items-center gap-2 bg-emerald-900 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-emerald-800 hover:scale-105 transition-all shadow-lg shadow-emerald-900/20"
-            >
-              <User size={14} className="text-emerald-200 group-hover:text-white transition-colors" />
-              <span>Sign In</span>
-            </Link>
+            
+            {/* CONDITIONAL AUTH BUTTONS */}
+            {user ? (
+               // LOGGED IN VIEW: Profile Chip
+               <div className="flex items-center gap-3">
+                  <Link href="/courses" className="group flex items-center gap-3 bg-emerald-50 text-emerald-900 pr-4 pl-1 py-1 rounded-full text-xs font-bold border border-emerald-100 hover:bg-emerald-100 transition shadow-sm">
+                      <div className="w-8 h-8 bg-emerald-200 rounded-full flex items-center justify-center text-emerald-800 shadow-inner font-serif text-sm">
+                          {user.name.charAt(0).toUpperCase()}
+                      </div>
+                      <span className="truncate max-w-[100px]">{user.name}</span>
+                  </Link>
+                  <button 
+                    onClick={handleLogout} 
+                    className="p-2 text-slate-400 hover:text-red-600 hover:bg-red-50 rounded-full transition-all" 
+                    title="Sign Out"
+                  >
+                     <LogOut size={16} />
+                  </button>
+               </div>
+            ) : (
+               // GUEST VIEW: Sign In Button
+               <Link 
+                 href="/login" 
+                 className="group flex items-center gap-2 bg-emerald-900 text-white px-5 py-2 rounded-full text-xs font-bold uppercase tracking-wider hover:bg-emerald-800 hover:scale-105 transition-all shadow-lg shadow-emerald-900/20"
+               >
+                 <User size={14} className="text-emerald-200 group-hover:text-white transition-colors" />
+                 <span>Sign In</span>
+               </Link>
+            )}
           </div>
         </div>
       </nav>
 
       <main className="flex-1">
         
-        {/* 2. HERO SECTION (FIXED SHADING) */}
+        {/* 2. HERO SECTION */}
         <section className="relative pt-20 pb-40 lg:pt-32 lg:pb-60 overflow-hidden">
           
           {/* Background Image Layer with Emerald Tint */}
           <div className="absolute inset-0 z-0">
-             {/* The base photo */}
              <div 
                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                style={{ backgroundImage: "url('/hero.jpg')" }}
              ></div>
-             {/* The Emerald Tint Overlay (Mix Blend Mode) */}
              <div className="absolute inset-0 bg-emerald-950/70 mix-blend-multiply"></div>
-             {/* Bottom Fade to blend with next section */}
              <div className="absolute inset-0 bg-gradient-to-t from-[#fdfcf8] via-transparent to-transparent"></div>
           </div>
 
@@ -101,7 +134,7 @@ export default function HomePage() {
              </h1>
              
              <p className="text-lg md:text-xl text-emerald-100/90 max-w-2xl mx-auto mb-10 leading-relaxed font-medium drop-shadow-md animate-in fade-in slide-in-from-bottom-8 duration-1000 fill-mode-both delay-200">
-               Master the classical texts of Islam through an interactive. 
+               Master the classical texts of Islam through an interactive, AI-powered interface. 
                Read the matn, watch scholar explanations, and test your understanding.
              </p>
              
