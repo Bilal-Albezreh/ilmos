@@ -4,64 +4,62 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { 
   BookOpen, ChevronLeft, ChevronRight, PlayCircle, Menu, 
-  Sparkles, BookMarked, Send, User, Bot, FileText, Download, X, Lightbulb, GraduationCap 
+  Sparkles, BookMarked, FileText, Download, RotateCcw, Plus, Minus, GraduationCap 
 } from "lucide-react";
 import bookData from "../../data/usool.json"; 
-import { supabase } from "../../lib/supabaseClient"; // 1. Import Supabase
+import { supabase } from "../../lib/supabaseClient";
 
+// TYPE DEFINITIONS
 type Section = {
   id: string;
   arabic: string;
   english: string;
-  videoId: string;
+  videoId?: string;
+  videoIdEnglish?: string;
+  videoIdArabic?: string;
   takeaways: string[];
-};
-
-type Message = {
-  role: 'user' | 'ai';
-  content: string;
 };
 
 export default function ReaderPage() {
   const [showTranslation, setShowTranslation] = useState(true);
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-  const [showTakeaways, setShowTakeaways] = useState(false);
   
   // BOOK NAVIGATION STATE
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
 
-  // CHAT STATE
-  const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<Message[]>([
-    { role: 'ai', content: "Assalamu Alaykum. I am IlmOS. I have read the full text of 'The Three Fundamental Principles'. Ask me anything!" }
-  ]);
-  const [isLoading, setIsLoading] = useState(false);
-  
-  const chatEndRef = useRef<HTMLDivElement>(null);
-  
+  // MEMORIZATION STATE
+  const [repetitionCount, setRepetitionCount] = useState(0);
+
   // USER STATE
   const [userId, setUserId] = useState<string | null>(null);
 
-  useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
   const currentChapter = bookData.chapters[currentChapterIndex];
-  const section: Section = currentChapter.sections[currentSectionIndex];
+  const section = currentChapter.sections[currentSectionIndex] as Section;
 
-  // --- CLOUD SYNC LOGIC (The "Real" Engineering) ---
+  // LOGIC: Split text by new lines for interleaved display
+  // We filter out empty lines to prevent weird spacing
+  const arabicLines = section.arabic.split('\n').filter(line => line.trim() !== '');
+  const englishLines = section.english.split('\n').filter(line => line.trim() !== '');
 
-  // 1. LOAD: Fetch progress from Supabase on startup
+  // Reset repetition count when section changes
+  useEffect(() => {
+    setRepetitionCount(0);
+  }, [currentSectionIndex, currentChapterIndex]);
+
+  // LOGIC: Video Toggle
+  const currentVideoId = showTranslation 
+    ? (section.videoIdEnglish || section.videoId)
+    : (section.videoIdArabic || section.videoId);
+
+  // --- CLOUD SYNC LOGIC ---
   useEffect(() => {
     const fetchProgress = async () => {
-      // Get current user ID from local session (for speed) or Supabase auth
       const localSession = localStorage.getItem("currentUser");
       const uid = localSession ? JSON.parse(localSession).id : null;
       setUserId(uid);
 
       if (uid) {
-        // Query the Database
         const { data, error } = await supabase
           .from('progress')
           .select('*')
@@ -70,7 +68,6 @@ export default function ReaderPage() {
           .single();
 
         if (data && !error) {
-          // If data exists in cloud, sync the UI to it
           if (data.current_chapter < bookData.chapters.length) {
             setCurrentChapterIndex(data.current_chapter);
             setCurrentSectionIndex(data.current_section);
@@ -78,16 +75,13 @@ export default function ReaderPage() {
         }
       }
     };
-
     fetchProgress();
   }, []);
 
-  // 2. SAVE: Write to Supabase whenever the page changes
   useEffect(() => {
     const saveProgress = async () => {
-      if (!userId) return; // Don't save for guests
+      if (!userId) return;
 
-      // Calculate percentage
       let totalSections = 0;
       bookData.chapters.forEach(c => totalSections += c.sections.length);
 
@@ -99,7 +93,6 @@ export default function ReaderPage() {
       
       const percent = Math.round((completedCount / totalSections) * 100);
 
-      // UPSERT: Update if exists, Insert if new
       await supabase
         .from('progress')
         .upsert({
@@ -111,17 +104,14 @@ export default function ReaderPage() {
             last_updated: new Date().toISOString()
         }, { onConflict: 'user_id, course_id' });
         
-      // Also update LocalStorage (for offline speed/optimistic UI)
       localStorage.setItem(`usool-progress-${userId}`, JSON.stringify({
         chapter: currentChapterIndex, 
         section: currentSectionIndex 
       }));
     };
 
-    // Debounce: Wait 1s before saving to prevent spamming the DB if user clicks fast
     const timeoutId = setTimeout(saveProgress, 1000);
     return () => clearTimeout(timeoutId);
-
   }, [currentChapterIndex, currentSectionIndex, userId]);
 
 
@@ -145,26 +135,6 @@ export default function ReaderPage() {
     }
   };
 
-  // --- CHAT LOGIC ---
-  const handleSendMessage = async (e?: React.FormEvent) => {
-    e?.preventDefault();
-    if (!input.trim()) return;
-
-    const userMessage: Message = { role: 'user', content: input };
-    setMessages(prev => [...prev, userMessage]);
-    setInput("");
-    setIsLoading(true);
-
-    setTimeout(() => {
-      const aiResponse: Message = { 
-        role: 'ai', 
-        content: "This is a simulated response. You asked about: " + userMessage.content 
-      };
-      setMessages(prev => [...prev, aiResponse]);
-      setIsLoading(false);
-    }, 1000);
-  };
-
   return (
     <div className="h-screen bg-andalusian animate-pattern flex flex-col overflow-hidden selection:bg-emerald-100 selection:text-emerald-900 font-sans text-slate-900">
       
@@ -175,7 +145,6 @@ export default function ReaderPage() {
             <Menu size={20} />
           </button>
           
-          {/* HOME LINK */}
           <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition">
             <div className="relative w-8 h-8 flex items-center justify-center">
               <div className="absolute inset-0 bg-emerald-600 rounded-lg rotate-45 opacity-80"></div>
@@ -190,7 +159,6 @@ export default function ReaderPage() {
         </div>
         
         <div className="flex items-center gap-3">
-            {/* SAVING INDICATOR */}
             {userId && (
                <div className="hidden md:flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-bold uppercase tracking-widest rounded-full border border-emerald-100">
                  <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
@@ -198,24 +166,22 @@ export default function ReaderPage() {
                </div>
             )}
 
-            {/* EXAM BUTTON */}
             <Link 
-              href="/quiz" 
+              href="/quiz/usool" 
               className="hidden md:flex items-center gap-2 px-4 py-1.5 bg-emerald-900 text-white rounded-full text-xs font-bold uppercase tracking-wider hover:bg-emerald-800 shadow-md transition-all"
             >
               <GraduationCap size={14} /> Start Exam
             </Link>
 
-            {/* Language Toggle */}
             <div className="flex items-center gap-1 bg-emerald-50/50 p-1 rounded-full border border-emerald-100">
               <button 
-                onClick={() => setShowTranslation(!showTranslation)}
+                onClick={() => setShowTranslation(true)}
                 className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${showTranslation ? 'bg-white text-emerald-800 shadow-sm border border-emerald-100' : 'text-emerald-600 hover:text-emerald-800'}`}
               >
                 English
               </button>
               <button 
-                onClick={() => setShowTranslation(!showTranslation)}
+                onClick={() => setShowTranslation(false)}
                 className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all duration-300 ${!showTranslation ? 'bg-white text-emerald-800 shadow-sm border border-emerald-100' : 'text-emerald-600 hover:text-emerald-800'}`}
               >
                 عربي
@@ -226,7 +192,7 @@ export default function ReaderPage() {
 
       <div className="flex-1 flex w-full overflow-hidden relative">
         
-        {/* SIDEBAR */}
+        {/* LEFT SIDEBAR (Table of Contents) */}
         <aside className={`${isSidebarOpen ? 'w-72 translate-x-0 opacity-100' : 'w-0 -translate-x-full opacity-0'} bg-white/95 backdrop-blur-sm border-r border-emerald-100 transition-all duration-500 flex flex-col shrink-0 z-40`}>
           <div className="p-6 border-b border-emerald-50">
             <h2 className="text-xs font-bold text-emerald-800 uppercase tracking-widest mb-1 flex items-center gap-2">
@@ -282,29 +248,46 @@ export default function ReaderPage() {
                   <div className="absolute bottom-4 left-4 w-16 h-16 border-b-2 border-l-2 border-emerald-900/10 rounded-bl-2xl"></div>
                   <div className="absolute bottom-4 right-4 w-16 h-16 border-b-2 border-r-2 border-emerald-900/10 rounded-br-2xl"></div>
 
+                  {/* TEXT CONTENT - INTERLEAVED */}
                   <div className="flex flex-col gap-10 text-center relative z-10 my-auto">
                     
-                    {/* Arabic Text */}
-                    <div className="relative">
-                      <span className="text-6xl text-emerald-100/50 absolute -top-8 left-1/2 -translate-x-1/2 font-serif select-none">﴾ ﴿</span>
-                      <p className="text-3xl md:text-5xl lg:text-5xl leading-[2.4] text-emerald-950 font-[var(--font-amiri)] drop-shadow-sm whitespace-pre-line" dir="rtl">
-                        {section.arabic}
-                      </p>
+                    <div className="relative mb-6">
+                      <span className="text-6xl text-emerald-100/50 absolute -top-12 left-1/2 -translate-x-1/2 font-serif select-none">﴾ ﴿</span>
                     </div>
-                    
-                    {/* Divider */}
-                    {showTranslation && (
-                      <div className="w-24 h-[2px] bg-gradient-to-r from-transparent via-amber-400 to-transparent mx-auto opacity-50" />
-                    )}
 
-                    {/* English Text */}
-                    {showTranslation && (
-                      <div className="animate-in fade-in slide-in-from-bottom-3 duration-700">
-                        <p className="text-lg md:text-xl leading-relaxed text-slate-700 font-[var(--font-playfair)] whitespace-pre-line">
-                          {section.english}
-                        </p>
+                    {/* MAPPED SECTIONS */}
+                    {arabicLines.map((line, index) => (
+                      <div key={index} className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-2 duration-700" style={{ animationDelay: `${index * 100}ms` }}>
+                         
+                         {/* Arabic Line */}
+                         <p className="text-3xl md:text-5xl lg:text-5xl leading-[2.4] text-emerald-950 font-[var(--font-amiri)] drop-shadow-sm" dir="rtl">
+                           {line}
+                         </p>
+                         
+                         {/* Matching English Line */}
+                         {showTranslation && englishLines[index] && (
+                           <>
+                             <div className="w-8 h-[1px] bg-amber-400/50 mx-auto" />
+                             <p className="text-lg md:text-xl leading-relaxed text-slate-700 font-[var(--font-playfair)]">
+                               {englishLines[index]}
+                             </p>
+                           </>
+                         )}
+                         
+                         {/* Spacer for next block */}
+                         {index < arabicLines.length - 1 && <div className="h-8" />}
+                      </div>
+                    ))}
+                    
+                    {/* Fallback if English is longer than Arabic (rare) */}
+                    {showTranslation && englishLines.length > arabicLines.length && (
+                      <div className="mt-4 pt-4 border-t border-emerald-100/50">
+                         {englishLines.slice(arabicLines.length).map((line, i) => (
+                           <p key={i} className="text-lg md:text-xl leading-relaxed text-slate-700 font-[var(--font-playfair)] mt-4">{line}</p>
+                         ))}
                       </div>
                     )}
+
                   </div>
                 </div>
               </div>
@@ -315,8 +298,6 @@ export default function ReaderPage() {
           {/* FLOATING CONTROL DOCK */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50">
              <div className="flex items-center gap-3 bg-white/80 backdrop-blur-xl border border-emerald-100/50 p-2 rounded-full shadow-2xl shadow-emerald-900/10 ring-1 ring-white/50">
-                
-                {/* Prev Button */}
                 <button 
                    onClick={handlePrev}
                    disabled={currentChapterIndex === 0 && currentSectionIndex === 0}
@@ -326,7 +307,6 @@ export default function ReaderPage() {
                    <ChevronLeft size={20} />
                 </button>
 
-                {/* Chapter Info */}
                 <div className="hidden sm:flex flex-col items-center px-4 w-40">
                    <span className="text-[10px] text-emerald-600 font-bold uppercase tracking-widest truncate max-w-full">
                      {currentChapter.title}
@@ -336,16 +316,6 @@ export default function ReaderPage() {
                    </span>
                 </div>
 
-                {/* Takeaways Toggle */}
-                <button 
-                   onClick={() => setShowTakeaways(true)}
-                   className="w-10 h-10 rounded-full flex items-center justify-center bg-amber-50 text-amber-600 hover:bg-amber-100 border border-amber-100 transition"
-                   title="Key Takeaways"
-                >
-                   <Lightbulb size={20} className={showTakeaways ? "fill-amber-400 text-amber-500" : ""} />
-                </button>
-
-                {/* Next Button */}
                 <button 
                    onClick={handleNext}
                    disabled={currentChapterIndex === bookData.chapters.length - 1 && currentSectionIndex === currentChapter.sections.length - 1}
@@ -356,78 +326,54 @@ export default function ReaderPage() {
                 </button>
              </div>
           </div>
-
-          {/* TAKEAWAYS MODAL */}
-          {showTakeaways && (
-            <div className="absolute inset-0 z-[60] flex items-center justify-center p-4 bg-emerald-900/20 backdrop-blur-sm animate-in fade-in duration-200">
-               <div className="bg-white rounded-2xl shadow-2xl max-w-md w-full border border-emerald-100 relative overflow-hidden animate-in zoom-in-95 duration-200">
-                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-amber-400"></div>
-                  
-                  {/* Close Button */}
-                  <button 
-                    onClick={() => setShowTakeaways(false)}
-                    className="absolute top-3 right-3 p-1 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition"
-                  >
-                    <X size={20} />
-                  </button>
-
-                  <div className="p-6">
-                     <div className="flex items-center gap-3 mb-6">
-                        <div className="p-2 bg-amber-50 text-amber-600 rounded-lg">
-                           <Sparkles size={20} />
-                        </div>
-                        <h3 className="text-lg font-serif font-bold text-emerald-950">Key Takeaways</h3>
-                     </div>
-                     
-                     <div className="space-y-3">
-                        {section.takeaways.map((point, i) => (
-                          <div key={i} className="flex gap-3 text-sm text-slate-700 bg-slate-50 p-3 rounded-xl border border-slate-100">
-                             <div className="mt-1 w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0"></div>
-                             <span className="leading-relaxed">{point}</span>
-                          </div>
-                        ))}
-                     </div>
-                  </div>
-                  
-                  <div className="bg-slate-50 p-3 text-center border-t border-slate-100">
-                     <button 
-                        onClick={() => setShowTakeaways(false)}
-                        className="text-xs font-bold text-emerald-700 hover:text-emerald-900"
-                     >
-                        Close Panel
-                     </button>
-                  </div>
-               </div>
-            </div>
-          )}
-
         </main>
 
-        {/* RIGHT SIDEBAR (Resources/AI) */}
+        {/* RIGHT SIDEBAR (Resources/Memorization/Takeaways) */}
         <aside className="w-80 bg-white/80 backdrop-blur-md border-l border-emerald-100 hidden xl:flex flex-col shrink-0 z-40">
            <div className="flex-1 flex flex-col h-full overflow-hidden">
+              
+              {/* SCROLLABLE CONTENT */}
               <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                 
+                 {/* VIDEO */}
                  <div className="group">
                     <h3 className="text-xs font-bold text-emerald-800/50 uppercase tracking-widest mb-3 flex items-center gap-2">
                        <PlayCircle size={14} /> Explanation
                     </h3>
                     <div className="aspect-video w-full bg-emerald-900 rounded-xl overflow-hidden shadow-lg relative cursor-pointer ring-1 ring-emerald-900/10 group-hover:ring-emerald-500/50 transition-all">
-                       {section.videoId ? (
+                       {currentVideoId ? (
                          <iframe 
                            width="100%" 
                            height="100%" 
-                           src={`https://www.youtube.com/embed/${section.videoId}`} 
-                           className="border-0 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                           src={`https://www.youtube.com/embed/${currentVideoId}`} 
+                           className="border-0 w-full h-full"
+                           allowFullScreen
+                           title="Scholar Explanation"
                          />
                        ) : (
                          <div className="w-full h-full flex flex-col items-center justify-center text-emerald-100/30 gap-2">
-                            <Bot size={24} />
                             <span className="text-xs">Video Coming Soon</span>
                          </div>
                        )}
                     </div>
                  </div>
 
+                 {/* KEY TAKEAWAYS */}
+                 <div className="bg-amber-50/50 border border-amber-100 rounded-xl p-4">
+                    <h3 className="text-xs font-bold text-amber-700 uppercase tracking-widest mb-3 flex items-center gap-2">
+                       <Sparkles size={14} /> Key Takeaways
+                    </h3>
+                    <div className="space-y-3">
+                       {section.takeaways.map((point, i) => (
+                         <div key={i} className="flex gap-2.5 text-xs text-slate-700">
+                            <div className="mt-1.5 w-1 h-1 rounded-full bg-amber-400 shrink-0"></div>
+                            <span className="leading-relaxed">{point}</span>
+                         </div>
+                       ))}
+                    </div>
+                 </div>
+
+                 {/* CONTEXT */}
                  <div>
                     <h3 className="text-xs font-bold text-emerald-800/50 uppercase tracking-widest mb-3 flex items-center gap-2">
                        <BookMarked size={14} /> Context
@@ -439,6 +385,7 @@ export default function ReaderPage() {
                     </div>
                  </div>
 
+                 {/* RESOURCES */}
                  <div>
                     <h3 className="text-xs font-bold text-emerald-800/50 uppercase tracking-widest mb-3 flex items-center gap-2">
                        <FileText size={14} /> Resources
@@ -461,59 +408,42 @@ export default function ReaderPage() {
                  </div>
               </div>
               
-              <div className="h-[40%] border-t border-emerald-50 bg-gradient-to-b from-white to-emerald-50/30 flex flex-col">
-                 <div className="px-4 py-3 border-b border-emerald-50 flex justify-between items-center bg-white/50 backdrop-blur-sm">
-                    <h3 className="text-xs font-bold text-emerald-800/50 uppercase tracking-widest flex items-center gap-2">
-                       <Sparkles size={14} className="text-amber-500" /> Ask IlmOS
+              {/* MEMORIZATION BOX (Fixed Bottom) */}
+              <div className="p-5 border-t border-emerald-50 bg-white/80 backdrop-blur-md">
+                 <div className="flex justify-between items-center mb-4">
+                    <h3 className="text-xs font-bold text-emerald-800 uppercase tracking-widest flex items-center gap-2">
+                       <RotateCcw size={14} className="text-emerald-600" /> Memorization
                     </h3>
-                    <span className="text-[10px] bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full font-bold">BETA</span>
+                    <button 
+                       onClick={() => setRepetitionCount(0)}
+                       className="text-[10px] text-slate-400 hover:text-red-500 transition-colors"
+                    >
+                       Reset
+                    </button>
                  </div>
+                 
+                 <div className="bg-slate-50 rounded-2xl p-1 border border-slate-200 flex items-center justify-between">
+                    <button 
+                       onClick={() => repetitionCount > 0 && setRepetitionCount(c => c - 1)}
+                       className="w-12 h-12 flex items-center justify-center rounded-xl bg-white text-slate-400 hover:text-emerald-600 shadow-sm border border-slate-100 hover:border-emerald-200 transition-all active:scale-95"
+                    >
+                       <Minus size={18} />
+                    </button>
+                    
+                    <div className="flex flex-col items-center">
+                       <span className="text-2xl font-bold text-emerald-950 font-mono">{repetitionCount}</span>
+                       <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Repetitions</span>
+                    </div>
 
-                 <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                    {messages.map((msg, i) => (
-                      <div key={i} className={`flex gap-3 ${msg.role === 'user' ? 'flex-row-reverse' : ''} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-                        <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 shadow-sm border 
-                          ${msg.role === 'user' ? 'bg-white border-slate-200' : 'bg-emerald-700 border-emerald-800 text-white'}`}>
-                          {msg.role === 'user' ? <User size={14} className="text-slate-400" /> : <Bot size={14} />}
-                        </div>
-                        <div className={`text-xs p-3 rounded-2xl max-w-[85%] leading-relaxed shadow-sm
-                          ${msg.role === 'user' ? 'bg-white text-slate-700 border border-slate-200 rounded-tr-sm' : 'bg-emerald-700 text-white rounded-tl-sm'}`}>
-                          {msg.content}
-                        </div>
-                      </div>
-                    ))}
-                    {isLoading && (
-                      <div className="flex gap-3">
-                        <div className="w-8 h-8 bg-emerald-700 text-white rounded-full flex items-center justify-center shrink-0"><Bot size={14} /></div>
-                        <div className="text-xs p-3 rounded-2xl bg-emerald-700 text-white/80 rounded-tl-sm flex items-center gap-1">
-                          <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce"/>
-                          <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce delay-75"/>
-                          <span className="w-1.5 h-1.5 bg-white rounded-full animate-bounce delay-150"/>
-                        </div>
-                      </div>
-                    )}
-                    <div ref={chatEndRef} />
-                 </div>
-
-                 <div className="p-3 bg-white border-t border-emerald-50">
-                    <form onSubmit={handleSendMessage} className="relative group">
-                       <input 
-                         type="text" 
-                         value={input}
-                         onChange={(e) => setInput(e.target.value)}
-                         placeholder="Ask about this text..."
-                         className="w-full text-xs pl-4 pr-10 py-3 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-inner group-hover:bg-white"
-                       />
-                       <button 
-                         type="submit"
-                         disabled={!input.trim() || isLoading}
-                         className="absolute right-2 top-2 p-1.5 bg-white text-emerald-600 rounded-lg hover:bg-emerald-50 disabled:opacity-50 disabled:hover:bg-white transition-colors"
-                       >
-                         <Send size={14} />
-                       </button>
-                    </form>
+                    <button 
+                       onClick={() => setRepetitionCount(c => c + 1)}
+                       className="w-12 h-12 flex items-center justify-center rounded-xl bg-emerald-900 text-white shadow-md hover:bg-emerald-800 transition-all active:scale-95"
+                    >
+                       <Plus size={18} />
+                    </button>
                  </div>
               </div>
+
            </div>
         </aside>
 

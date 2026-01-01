@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { 
   BookOpen, Clock, BarChart, CheckCircle2, PlayCircle, 
   ArrowLeft, Star, Users, BookMarked, GraduationCap 
@@ -111,9 +112,11 @@ export default function UsoolLandingPage() {
                <div className="border border-slate-200 rounded-2xl overflow-hidden bg-white">
                  {[
                    { title: "Introduction: The Four Matters", time: "15 min" },
-                   { title: "The Three Fundamental Principles", time: "45 min" },
-                   { title: "The Religion of Islam (3 Levels)", time: "30 min" },
-                   { title: "The Prophet Muhammad ﷺ", time: "20 min" },
+                   { title: "Introduction: The Three Matters", time: "45 min" },
+                   { title: "Introduction: Al-Hanafiyyah", time: "30 min" },
+                   { title: "1st Principle: Knowledge of Allah", time: "20 min" },
+                   { title: "2nd Principle: Knowledge of Islam", time: "15 min" },
+                   { title: "3rd Principle: Knowledge of the Prophet ﷺ", time: "15 min" },
                    { title: "Conclusion: Resurrection & Taghut", time: "15 min" },
                  ].map((chapter, i) => (
                    <div key={i} className="flex items-center justify-between p-4 border-b last:border-0 hover:bg-slate-50 transition">
@@ -137,12 +140,14 @@ export default function UsoolLandingPage() {
               <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xl shadow-slate-200/50">
                 
                 {/* Book Preview Image */}
-                <div className="aspect-[3/4] bg-emerald-900 rounded-lg mb-6 relative overflow-hidden group shadow-inner">
-                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] opacity-10"></div>
-                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6 border-2 border-emerald-500/30 m-2 rounded">
-                      <h3 className="text-emerald-100 font-serif text-2xl font-bold mb-2">ثلاثة الأصول</h3>
-                      <p className="text-emerald-400/80 text-xs uppercase tracking-widest">Al-Usool Al-Thalatha</p>
-                   </div>
+                <div className="aspect-[3/4] relative bg-slate-100 rounded-lg mb-6 overflow-hidden shadow-xl shadow-emerald-900/20 group border border-slate-200">
+                   <Image
+                     src="/usool.jpg"
+                     alt="Al-Usool Al-Thalatha Book Cover"
+                     fill
+                     className="object-cover group-hover:scale-105 transition-transform duration-500"
+                     priority
+                   />
                 </div>
 
                 <div className="space-y-4">
@@ -154,7 +159,7 @@ export default function UsoolLandingPage() {
                   </Link>
                   
                   <Link 
-                    href="/quiz"
+                    href="/quiz/usool"
                     className="w-full h-12 flex items-center justify-center gap-2 bg-white text-emerald-900 border border-emerald-200 rounded-xl font-bold hover:bg-emerald-50 transition-all"
                   >
                     Take Quiz

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { 
-  BookOpen, User, Star, Clock, Trophy, ArrowRight, 
+  BookOpen, User, Star, Trophy, ArrowRight, 
   Lock, CheckCircle2, GraduationCap 
 } from "lucide-react";
 import bookData from "../../data/usool.json";
@@ -18,16 +18,15 @@ export default function CoursesDashboard() {
     const loadDashboardData = async () => {
       setLoading(true);
       
-      // 1. GET REAL USER (Source of Truth)
+      // 1. GET REAL USER
       const { data: { user: authUser }, error: authError } = await supabase.auth.getUser();
 
       if (authError || !authUser) {
         setLoading(false);
-        return; // Stay as guest
+        return; 
       }
 
-      // 2. GET PROFILE NAME (Optional, fallback to email)
-      // We try to get the name from the 'profiles' table, or just use email
+      // 2. GET PROFILE
       const { data: profile } = await supabase
         .from('profiles')
         .select('full_name')
@@ -37,7 +36,21 @@ export default function CoursesDashboard() {
       const displayName = profile?.full_name || authUser.email?.split('@')[0] || "Student";
       setUser({ name: displayName, email: authUser.email || "" });
 
-      // 3. GET CLOUD PROGRESS
+      // 3. GET EXAM RESULTS
+      const { data: examData } = await supabase
+        .from('exam_results')
+        .select('*')
+        .eq('user_id', authUser.id);
+
+      let calculatedAvg = 0;
+      if (examData && examData.length > 0) {
+        const totalPercentage = examData.reduce((acc, curr) => {
+           return acc + ((curr.score / curr.max_score) * 100);
+        }, 0);
+        calculatedAvg = Math.round(totalPercentage / examData.length);
+      }
+
+      // 4. GET PROGRESS
       let percent = 0;
       const { data: cloudProgress } = await supabase
         .from('progress')
@@ -45,37 +58,8 @@ export default function CoursesDashboard() {
         .eq('user_id', authUser.id)
         .eq('course_id', 'usool')
         .single();
-
-      if (cloudProgress) {
-        percent = cloudProgress.completed_percent;
-      } else {
-        // Fallback: Check local storage only if cloud is empty (Optimistic UI)
-        const savedProgress = localStorage.getItem(`usool-progress-${authUser.id}`);
-        if (savedProgress) {
-           const { chapter, section } = JSON.parse(savedProgress);
-           let total = 0;
-           bookData.chapters.forEach(c => total += c.sections.length);
-           let done = 0;
-           for (let i = 0; i < chapter; i++) done += bookData.chapters[i].sections.length;
-           done += section + 1;
-           percent = Math.round((done / total) * 100);
-        }
-      }
-
-      // 4. GET REAL EXAM RESULTS
-      const { data: examData, error: examError } = await supabase
-        .from('exam_results')
-        .select('score, max_score')
-        .eq('user_id', authUser.id);
-
-      let calculatedAvg = 0;
-      // We only care if they have actually taken exams
-      if (examData && examData.length > 0) {
-        const totalPercentage = examData.reduce((acc, curr) => {
-           return acc + ((curr.score / curr.max_score) * 100);
-        }, 0);
-        calculatedAvg = Math.round(totalPercentage / examData.length);
-      }
+        
+      if (cloudProgress) percent = cloudProgress.completed_percent;
 
       setStats({
         progress: percent,
@@ -110,11 +94,9 @@ export default function CoursesDashboard() {
       <main className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid lg:grid-cols-12 gap-12">
           
-          {/* LEFT: PROFILE CARD (Sticky) */}
+          {/* LEFT: PROFILE CARD */}
           <div className="lg:col-span-4">
             <div className="sticky top-24 space-y-6">
-               
-               {/* Identity Card */}
                <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-xl shadow-slate-200/50 relative overflow-hidden text-center">
                   <div className="absolute top-0 left-0 w-full h-32 bg-emerald-900"></div>
                   <div className="absolute top-0 left-0 w-full h-32 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')]"></div>
@@ -162,7 +144,6 @@ export default function CoursesDashboard() {
                      </div>
                   </div>
                </div>
-
             </div>
           </div>
 
